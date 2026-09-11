@@ -1,0 +1,25 @@
+{
+  "scenario_id": "band-evacuate-river-peak",
+  "kind": "rule_engine",
+  "coverage": "Req 21.1 severity band: EVACUATE",
+  "input_fixture_id": "synthetic:readings/evacuate_peak",
+  "input": {
+    "last_known_band": "WARNING",
+    "readings": {
+      "river_level": { "value": 5.5, "unit": "m", "age_seconds": 60 },
+      "rainfall_rate": { "value": 40.0, "unit": "mm/h", "age_seconds": 60 },
+      "dam_release": { "value": 2600.0, "unit": "m3/s", "age_seconds": 60 }
+    }
+  },
+  "expected_observable_outcome": {
+    "severity_band": "EVACUATE",
+    "triggered_rules": [
+      "dam_release_evacuate", "dam_release_warning", "dam_release_watch",
+      "rainfall_rate_warning", "rainfall_rate_watch",
+      "river_level_evacuate", "river_level_warning", "river_level_watch"
+    ],
+    "unverified": false,
+    "model_invocations": 0
+  },
+  "pass_condition": "River level 5.5m and dam release 2600 m3/s both reach EVACUATE while rainfall 40 mm/h reaches WARNING; the highest band wins (EVACUATE) and all met thresholds are triggered."
+}

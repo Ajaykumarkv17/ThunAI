@@ -1,0 +1,28 @@
+{
+  "scenario_id": "dispatch-without-capacity-all-boats-assigned",
+  "kind": "dispatch",
+  "coverage": "Req 6.6 no-capacity when every suitable responder is already ASSIGNED",
+  "input_fixture_id": "seed:responders (all boat-equipped marked ASSIGNED)",
+  "input": {
+    "incident_coords": [11.24392, 79.85561],
+    "radius_km": 15.0,
+    "required_equipment": "boat",
+    "confidence": 0.9,
+    "responder_overrides": {
+      "resp-01": "ASSIGNED",
+      "resp-03": "ASSIGNED",
+      "resp-05": "ASSIGNED",
+      "resp-07": "ASSIGNED",
+      "resp-09": "ASSIGNED",
+      "resp-11": "ASSIGNED",
+      "resp-13": "ASSIGNED"
+    }
+  },
+  "expected_observable_outcome": {
+    "has_capacity": false,
+    "assigned_responder_id": null,
+    "escalated": true,
+    "category": "no_capacity"
+  },
+  "pass_condition": "Every boat-equipped responder is already assigned, so a boat-required rescue finds no capacity and the no_capacity decision escalates to the coordinator."
+}

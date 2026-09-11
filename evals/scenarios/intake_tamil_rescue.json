@@ -1,0 +1,14 @@
+{
+  "scenario_id": "intake-tamil-rescue",
+  "kind": "intake",
+  "coverage": "Req 21.1 intake scenario per language: Tamil (ta)",
+  "input_fixture_id": "MSG-001",
+  "expected_observable_outcome": {
+    "source_language": "ta",
+    "request_category": "RESCUE",
+    "urgency_band": "IMMEDIATE",
+    "dispatch_eligible": true,
+    "forced_immediate": false
+  },
+  "pass_condition": "The Tamil rescue message classifies as RESCUE/IMMEDIATE and, with no reported mobility or medical need, remains autonomously dispatch-eligible with no forced-urgency override."
+}

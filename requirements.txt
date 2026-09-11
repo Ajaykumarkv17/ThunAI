@@ -1,0 +1,40 @@
+# ThunAI — pinned runtime + dev dependencies (exact pins only, no ranges).
+#
+# Version-verification note (Req 19.8): pins are the latest stable releases
+# available on PyPI as of this update. The design (design.md "Repository
+# layout") originally pinned strands-agents==1.54.0 / strands-agents-tools==
+# 0.8.7; per explicit user instruction, all packages are now pinned to their
+# latest available PyPI release instead — "when docs and design disagree the
+# docs win", and the user's own direction supersedes the earlier design pin
+# here. Re-verify against PyPI before each milestone since the SDK ships
+# weekly.
+#
+# Requires Python >= 3.10 (see pyproject.toml).
+
+# --- Strands Agents SDK -------------------------------------
+strands-agents==1.55.0
+strands-agents-tools==0.8.8
+
+# --- Amazon Bedrock AgentCore runtime SDK -----------------------------------
+bedrock-agentcore==1.22.0
+
+# --- Data modelling / typed decisions ---------------------------------------
+pydantic==2.13.5
+
+# --- AWS SDK (DynamoDB, SES/SNS, Bedrock Agent Runtime, etc.) ----------------
+boto3==1.43.90
+
+# --- Infrastructure as code (single Python CDK app) -------------------------
+aws-cdk-lib==2.268.0
+constructs==10.8.1
+
+# --- Testing: unit + property-based (Hypothesis) ----------------------------
+pytest==9.1.1
+hypothesis==6.168.0
+
+# --- Testing: in-process fake AWS backends (DynamoDB) for memory/harness ----
+# NEW test-only dependency added in task 6.1 (memory/state_store.py): no live
+# thunai-state table exists yet (CDK infra tasks 21.x not yet implemented),
+# so state_store tests run against moto's mocked DynamoDB. Pinned to the
+# latest stable PyPI release confirmed at the time of that task (5.2.3).
+moto==5.2.3

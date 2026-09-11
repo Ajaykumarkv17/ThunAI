@@ -1,0 +1,21 @@
+{
+  "scenario_id": "band-warning-river-rain",
+  "kind": "rule_engine",
+  "coverage": "Req 21.1 severity band: WARNING",
+  "input_fixture_id": "synthetic:readings/warning_river_rain",
+  "input": {
+    "last_known_band": "WATCH",
+    "readings": {
+      "river_level": { "value": 4.3, "unit": "m", "age_seconds": 60 },
+      "rainfall_rate": { "value": 22.0, "unit": "mm/h", "age_seconds": 60 },
+      "dam_release": { "value": 900.0, "unit": "m3/s", "age_seconds": 60 }
+    }
+  },
+  "expected_observable_outcome": {
+    "severity_band": "WARNING",
+    "triggered_rules": ["rainfall_rate_watch", "river_level_warning", "river_level_watch"],
+    "unverified": false,
+    "model_invocations": 0
+  },
+  "pass_condition": "River level 4.3m reaches WARNING and rainfall 22 mm/h reaches WATCH; the highest band across readings is WARNING and every threshold met along the way is reported as triggered."
+}

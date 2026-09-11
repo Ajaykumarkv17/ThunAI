@@ -1,0 +1,19 @@
+{
+  "scenario_id": "dispatch-without-capacity-out-of-radius",
+  "kind": "dispatch",
+  "coverage": "Req 21.1 dispatch-without-capacity (no responder in range)",
+  "input_fixture_id": "seed:responders (all AVAILABLE but far from incident)",
+  "input": {
+    "incident_coords": [11.0, 79.5],
+    "radius_km": 5.0,
+    "confidence": 0.9
+  },
+  "expected_observable_outcome": {
+    "has_capacity": false,
+    "assigned_responder_id": null,
+    "candidate_count": 0,
+    "escalated": true,
+    "category": "no_capacity"
+  },
+  "pass_condition": "No seeded responder falls within 5km of the remote incident, so the dispatch finds no capacity and the no_capacity decision always escalates to the coordinator."
+}

@@ -1,0 +1,21 @@
+{
+  "scenario_id": "band-total-outage-carry-forward",
+  "kind": "rule_engine",
+  "coverage": "Req 2.9 total sensor outage: carry-forward + unverified (degraded evaluation)",
+  "input_fixture_id": "synthetic:readings/total_outage",
+  "input": {
+    "last_known_band": "WARNING",
+    "readings": {
+      "river_level": null,
+      "rainfall_rate": { "value": "n/a", "unit": "mm/h", "age_seconds": 60 },
+      "dam_release": { "value": 900.0, "unit": "m3/s", "age_seconds": 100000 }
+    }
+  },
+  "expected_observable_outcome": {
+    "severity_band": "WARNING",
+    "triggered_rules": [],
+    "unverified": true,
+    "model_invocations": 0
+  },
+  "pass_condition": "Every reading is unavailable (absent, non-numeric, stale), so the Rule_Engine applies no decrease: it carries forward the last known WARNING band and marks the result unverified."
+}

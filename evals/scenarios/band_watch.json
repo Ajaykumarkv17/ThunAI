@@ -1,0 +1,21 @@
+{
+  "scenario_id": "band-watch-river-rising",
+  "kind": "rule_engine",
+  "coverage": "Req 21.1 severity band: WATCH",
+  "input_fixture_id": "synthetic:readings/watch_river",
+  "input": {
+    "last_known_band": "NORMAL",
+    "readings": {
+      "river_level": { "value": 3.6, "unit": "m", "age_seconds": 60 },
+      "rainfall_rate": { "value": 10.0, "unit": "mm/h", "age_seconds": 60 },
+      "dam_release": { "value": 500.0, "unit": "m3/s", "age_seconds": 60 }
+    }
+  },
+  "expected_observable_outcome": {
+    "severity_band": "WATCH",
+    "triggered_rules": ["river_level_watch"],
+    "unverified": false,
+    "model_invocations": 0
+  },
+  "pass_condition": "River level 3.6m clears only the WATCH threshold (3.5m) while rainfall and dam release stay below WATCH, so the highest band is WATCH with the single river_level_watch rule triggered."
+}

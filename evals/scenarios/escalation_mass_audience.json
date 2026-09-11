@@ -1,0 +1,23 @@
+{
+  "scenario_id": "escalation-mass-audience-alert",
+  "kind": "escalation",
+  "coverage": "Req 10.6 mass-notification audience threshold forces escalation on an otherwise-neutral alert",
+  "input_fixture_id": "synthetic:decision/alert_release_mass",
+  "input": {
+    "category": "alert_release",
+    "confidence": 0.95,
+    "action": "execute",
+    "audience_count": 900,
+    "severity_band": "WARNING",
+    "human_response": "approve",
+    "approved_option": "send_alert"
+  },
+  "expected_observable_outcome": {
+    "escalated": true,
+    "status": "RESOLVED",
+    "resolved_by_default": false,
+    "applied_action": "send_alert",
+    "determining_entry": "MASS_NOTIFICATION_AUDIENCE_THRESHOLD"
+  },
+  "pass_condition": "An alert to 900 recipients exceeds the mass-notification threshold, so even a high-confidence execute decision escalates; the coordinator approves and the send proceeds."
+}

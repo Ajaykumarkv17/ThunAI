@@ -1,0 +1,21 @@
+{
+  "scenario_id": "band-normal-baseline",
+  "kind": "rule_engine",
+  "coverage": "Req 21.1 severity band: NORMAL",
+  "input_fixture_id": "synthetic:readings/normal_baseline",
+  "input": {
+    "last_known_band": "NORMAL",
+    "readings": {
+      "river_level": { "value": 2.1, "unit": "m", "age_seconds": 60 },
+      "rainfall_rate": { "value": 3.0, "unit": "mm/h", "age_seconds": 60 },
+      "dam_release": { "value": 400.0, "unit": "m3/s", "age_seconds": 60 }
+    }
+  },
+  "expected_observable_outcome": {
+    "severity_band": "NORMAL",
+    "triggered_rules": [],
+    "unverified": false,
+    "model_invocations": 0
+  },
+  "pass_condition": "All three readings sit below every WATCH threshold, so the Rule_Engine bands the sweep NORMAL with no triggered rules and zero model invocations."
+}

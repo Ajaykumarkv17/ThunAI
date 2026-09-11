@@ -1,0 +1,22 @@
+{
+  "scenario_id": "escalation-data-outage-always-ask",
+  "kind": "escalation",
+  "coverage": "Req 3.6 sensor data outage is always surfaced to the coordinator",
+  "input_fixture_id": "synthetic:decision/data_outage",
+  "input": {
+    "category": "data_outage",
+    "confidence": 0.99,
+    "action": "execute",
+    "severity_band": "WATCH",
+    "human_response": "approve",
+    "approved_option": "acknowledge"
+  },
+  "expected_observable_outcome": {
+    "escalated": true,
+    "status": "RESOLVED",
+    "resolved_by_default": false,
+    "applied_action": "acknowledge",
+    "determining_entry": "ALWAYS_ASK_CATEGORIES"
+  },
+  "pass_condition": "A sensor data-outage decision always escalates regardless of confidence; the coordinator acknowledges it, so the record resolves normally."
+}

@@ -1,0 +1,22 @@
+{
+  "scenario_id": "escalation-approve",
+  "kind": "escalation",
+  "coverage": "Req 21.1 escalation-approval",
+  "input_fixture_id": "synthetic:decision/evacuation_order",
+  "input": {
+    "category": "evacuation_order",
+    "confidence": 0.96,
+    "action": "ask_human",
+    "is_irreversible_action": true,
+    "severity_band": "EVACUATE",
+    "human_response": "approve",
+    "approved_option": "issue_order"
+  },
+  "expected_observable_outcome": {
+    "escalated": true,
+    "status": "RESOLVED",
+    "resolved_by_default": false,
+    "applied_action": "issue_order"
+  },
+  "pass_condition": "An evacuation order escalates (irreversible + always-ask); the coordinator approves, so the record resolves normally with the approved option applied, not by default."
+}

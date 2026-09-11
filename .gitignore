@@ -1,0 +1,55 @@
+# --- Secrets / local env (NEVER commit) -------------------------------------
+.env
+.env.*
+!.env.example
+
+# --- Python virtualenv & bytecode -------------------------------------------
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+*.egg
+.eggs/
+build/
+develop-eggs/
+
+# --- Python tooling caches --------------------------------------------------
+.pytest_cache/
+.hypothesis/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+
+# --- Strands session persistence --------------------------------------------
+sessions/
+
+# --- Node / frontend --------------------------------------------------------
+node_modules/
+dist/
+.vite/
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# --- AWS CDK synth output ----------------------------------------------------
+cdk.out/
+.cdk.staging/
+
+# --- OS / editor cruft ------------------------------------------------------
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# --- Local eval / run artefacts ---------------------------------------------
+evals/results/*
+!evals/results/.gitkeep

@@ -1,0 +1,21 @@
+{
+  "scenario_id": "escalation-decline",
+  "kind": "escalation",
+  "coverage": "Req 21.1 escalation-decline",
+  "input_fixture_id": "synthetic:decision/evacuation_order",
+  "input": {
+    "category": "evacuation_order",
+    "confidence": 0.96,
+    "action": "ask_human",
+    "is_irreversible_action": true,
+    "severity_band": "EVACUATE",
+    "human_response": "decline"
+  },
+  "expected_observable_outcome": {
+    "escalated": true,
+    "status": "RESOLVED",
+    "resolved_by_default": false,
+    "applied_action": "declined"
+  },
+  "pass_condition": "An evacuation order escalates; the coordinator declines, so the record resolves normally as declined and the irreversible action is not taken, not resolved by default."
+}

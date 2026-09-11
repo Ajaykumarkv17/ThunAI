@@ -1,0 +1,14 @@
+{
+  "scenario_id": "intake-information-not-dispatchable",
+  "kind": "intake",
+  "coverage": "Req 5.3 INFORMATION category is never dispatch-eligible",
+  "input_fixture_id": "MSG-005",
+  "expected_observable_outcome": {
+    "source_language": "ta",
+    "request_category": "INFORMATION",
+    "urgency_band": "ROUTINE",
+    "dispatch_eligible": false,
+    "forced_immediate": false
+  },
+  "pass_condition": "An INFORMATION-only Tamil question needs no responder, so it is classified ROUTINE and is never marked autonomously dispatch-eligible."
+}

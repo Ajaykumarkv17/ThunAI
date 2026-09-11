@@ -1,0 +1,14 @@
+{
+  "scenario_id": "intake-tamil-mobility-forced-immediate",
+  "kind": "intake",
+  "coverage": "Req 5.2/5.3 mobility assistance forces IMMEDIATE and human routing",
+  "input_fixture_id": "MSG-006",
+  "expected_observable_outcome": {
+    "source_language": "ta",
+    "request_category": "RESCUE",
+    "urgency_band": "IMMEDIATE",
+    "dispatch_eligible": false,
+    "forced_immediate": true
+  },
+  "pass_condition": "The Tamil wheelchair-user rescue message reports a mobility-assistance need, so post-processing forces IMMEDIATE urgency and withholds autonomous dispatch pending a human."
+}

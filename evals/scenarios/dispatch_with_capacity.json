@@ -1,0 +1,17 @@
+{
+  "scenario_id": "dispatch-with-capacity",
+  "kind": "dispatch",
+  "coverage": "Req 21.1 dispatch-with-capacity",
+  "input_fixture_id": "seed:responders (all AVAILABLE)",
+  "input": {
+    "incident_coords": [11.24392, 79.85561],
+    "radius_km": 5.0,
+    "confidence": 0.92
+  },
+  "expected_observable_outcome": {
+    "has_capacity": true,
+    "escalated": false,
+    "category": "routine_dispatch_ambulatory"
+  },
+  "pass_condition": "With responders available inside the 5km radius, the dispatch finds capacity, assigns the nearest as a routine ambulatory dispatch above the confidence floor, and executes without escalation."
+}

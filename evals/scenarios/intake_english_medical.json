@@ -1,0 +1,14 @@
+{
+  "scenario_id": "intake-english-medical-forced-immediate",
+  "kind": "intake",
+  "coverage": "Req 21.1 intake scenario per language: English (en); Req 5.2/5.3 medical forces IMMEDIATE",
+  "input_fixture_id": "MSG-002",
+  "expected_observable_outcome": {
+    "source_language": "en",
+    "request_category": "MEDICAL",
+    "urgency_band": "IMMEDIATE",
+    "dispatch_eligible": false,
+    "forced_immediate": true
+  },
+  "pass_condition": "The English medical message reports a medical need, so deterministic post-processing forces IMMEDIATE urgency and routes it to a human rather than autonomous dispatch."
+}

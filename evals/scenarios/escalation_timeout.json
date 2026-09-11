@@ -1,0 +1,21 @@
+{
+  "scenario_id": "escalation-timeout",
+  "kind": "escalation",
+  "coverage": "Req 21.1 escalation-timeout (default action applied)",
+  "input_fixture_id": "synthetic:decision/evacuation_order",
+  "input": {
+    "category": "evacuation_order",
+    "confidence": 0.96,
+    "action": "ask_human",
+    "is_irreversible_action": true,
+    "severity_band": "EVACUATE",
+    "human_response": "timeout"
+  },
+  "expected_observable_outcome": {
+    "escalated": true,
+    "status": "RESOLVED_BY_DEFAULT",
+    "resolved_by_default": true,
+    "applied_action": "hold"
+  },
+  "pass_condition": "An evacuation order escalates; no human responds before the deadline, so the timeout sweep resolves the record by default and applies the withholding default action (hold), never auto-issuing the order."
+}

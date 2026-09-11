@@ -1,0 +1,22 @@
+{
+  "scenario_id": "escalation-non-ambulatory-irreversible",
+  "kind": "escalation",
+  "coverage": "Req 6.5 dispatch to a non-ambulatory occupant is an Irreversible_Action, always confirmed",
+  "input_fixture_id": "synthetic:decision/dispatch_non_ambulatory",
+  "input": {
+    "category": "dispatch_non_ambulatory",
+    "confidence": 0.93,
+    "action": "ask_human",
+    "is_irreversible_action": true,
+    "severity_band": "WARNING",
+    "human_response": "timeout"
+  },
+  "expected_observable_outcome": {
+    "escalated": true,
+    "status": "RESOLVED_BY_DEFAULT",
+    "resolved_by_default": true,
+    "applied_action": "hold_assignment",
+    "determining_entry": "is_irreversible_action"
+  },
+  "pass_condition": "A dispatch to a non-ambulatory occupant is irreversible and always escalates; on timeout it resolves by default and holds the assignment rather than committing a responder."
+}

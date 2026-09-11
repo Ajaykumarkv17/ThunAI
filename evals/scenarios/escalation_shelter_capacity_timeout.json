@@ -1,0 +1,21 @@
+{
+  "scenario_id": "escalation-shelter-capacity-timeout",
+  "kind": "escalation",
+  "coverage": "Req 6.7 shelter-capacity conflict always-ask; timeout applies hold_assignment default",
+  "input_fixture_id": "synthetic:decision/shelter_capacity",
+  "input": {
+    "category": "shelter_capacity",
+    "confidence": 0.88,
+    "action": "execute",
+    "severity_band": "WARNING",
+    "human_response": "timeout"
+  },
+  "expected_observable_outcome": {
+    "escalated": true,
+    "status": "RESOLVED_BY_DEFAULT",
+    "resolved_by_default": true,
+    "applied_action": "hold_assignment",
+    "determining_entry": "ALWAYS_ASK_CATEGORIES"
+  },
+  "pass_condition": "A shelter-capacity conflict is always-ask; on timeout the record resolves by default, holding the assignment rather than committing residents to a full shelter."
+}

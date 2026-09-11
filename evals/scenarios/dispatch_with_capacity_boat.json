@@ -1,0 +1,18 @@
+{
+  "scenario_id": "dispatch-with-capacity-boat-required",
+  "kind": "dispatch",
+  "coverage": "Req 6.1 equipment-filtered candidate search still finds capacity",
+  "input_fixture_id": "seed:responders (boat-equipped, all AVAILABLE)",
+  "input": {
+    "incident_coords": [11.24392, 79.85561],
+    "radius_km": 8.0,
+    "required_equipment": "boat",
+    "confidence": 0.9
+  },
+  "expected_observable_outcome": {
+    "has_capacity": true,
+    "escalated": false,
+    "category": "routine_dispatch_ambulatory"
+  },
+  "pass_condition": "A boat-required rescue still finds a boat-equipped responder within 8km, so the dispatch executes as a routine ambulatory dispatch without escalation."
+}

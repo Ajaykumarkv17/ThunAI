@@ -1,0 +1,14 @@
+﻿{
+  "app": "python -m infra.app",
+  "watch": {
+    "include": ["infra/**", "agents/**", "tools/**", "harness/**", "policy/**", "schemas/**", "integrations/**", "memory/**", "surface/**", "triggers/**"],
+    "exclude": ["frontend/node_modules/**", "**/__pycache__/**", "cdk.out/**"]
+  },
+  "context": {
+    "@aws-cdk/aws-lambda:recognizeLayerVersion": true,
+    "@aws-cdk/core:checkSecretUsage": true,
+    "@aws-cdk/core:target-partitions": ["aws"],
+    "@aws-cdk/aws-iam:minimizePolicies": true,
+    "@aws-cdk/core:enablePartitionLiterals": true
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "scenario_id": "escalation-below-confidence-floor",
+  "kind": "escalation",
+  "coverage": "Req 10.4 confidence below the floor escalates even a never-ask category",
+  "input_fixture_id": "synthetic:decision/low_confidence_dispatch",
+  "input": {
+    "category": "routine_dispatch_ambulatory",
+    "confidence": 0.5,
+    "action": "execute",
+    "severity_band": "WATCH",
+    "human_response": "approve",
+    "approved_option": "assign"
+  },
+  "expected_observable_outcome": {
+    "escalated": true,
+    "status": "RESOLVED",
+    "resolved_by_default": false,
+    "applied_action": "assign",
+    "determining_entry": "CONFIDENCE_FLOOR"
+  },
+  "pass_condition": "A routine dispatch below the 0.70 confidence floor escalates regardless of its never-ask category; the coordinator approves and the assignment is applied."
+}

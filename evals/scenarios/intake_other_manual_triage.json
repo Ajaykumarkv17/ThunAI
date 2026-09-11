@@ -1,0 +1,14 @@
+{
+  "scenario_id": "intake-other-manual-triage",
+  "kind": "intake",
+  "coverage": "Req 5.8 off-topic OTHER message routed to manual triage, never dispatch-eligible",
+  "input_fixture_id": "MSG-008",
+  "expected_observable_outcome": {
+    "source_language": "en",
+    "request_category": "OTHER",
+    "urgency_band": "ROUTINE",
+    "dispatch_eligible": false,
+    "forced_immediate": false
+  },
+  "pass_condition": "An off-topic English message classifies as OTHER/ROUTINE and is never marked dispatch-eligible; it is preserved for manual triage."
+}

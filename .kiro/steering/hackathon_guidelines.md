@@ -1,5 +1,5 @@
 ---
-inclusion: always
+inclusion: manual
 ---
 # Rules for building an "Agents for Humans" submission
 
@@ -463,16 +463,16 @@ def find_free_slots(day_iso: str, minutes: int) -> dict:
 ```
 
 ```python
-# integrations/__init__.py
+# integrations/sensor_provider.py
 import os
 
 
-def calendar_backend():
-    if os.environ.get("USE_FAKES", "1") == "1":
-        from .fake_calendar import FakeCalendar
-        return FakeCalendar()
-    from .google_calendar import GoogleCalendar
-    return GoogleCalendar()
+def get_sensor_provider():
+    # SYNTHETIC_SENSORS is the ONLY synthetic-backend toggle in ThunAI, and it
+    # affects monitoring/sensor data only; every other interface is always live.
+    if os.environ.get("SYNTHETIC_SENSORS", "1") == "1":
+        return SyntheticSensorProvider()
+    return LiveSensorProvider()
 ```
 
 Three payoffs, all of which matter more than they sound:
@@ -481,8 +481,9 @@ Three payoffs, all of which matter more than they sound:
 2. Your demo is **reproducible** — same fixtures, same run, every take.
 3. A judge can run your repo **without credentials for six third-party services**,
    which is requirement 4. This alone rescues more submissions than any clever
-   prompt. Make `USE_FAKES=1` the default in `.env.example` and say so in the
-   README.
+   prompt. Make `SYNTHETIC_SENSORS=1` the default in `.env.example` and say so
+   in the README. (In ThunAI this flag gates monitoring/sensor data only — every
+   other interface stays live; there is no global fakes switch.)
 
 Keep the real path working too, and show it once in the video. Fakes for
 reproducibility, real for credibility.
@@ -1648,7 +1649,7 @@ decision that matters most; do not bury it.>
 git clone <repo> && cd <repo>
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env          # USE_FAKES=1 by default
+cp .env.example .env          # SYNTHETIC_SENSORS=1 by default (sensor data only)
 export AWS_REGION=us-west-2   # plus Bedrock credentials
 ./scripts/seed.sh
 ./scripts/demo.sh             # runs the full autonomous loop on fixtures
@@ -1916,7 +1917,7 @@ Work down it. Do not skip a line because you are sure.
 - [ ] `requirements.txt` pinned to exact versions
 - [ ] `.env.example` committed; `.env` gitignored
 - [ ] **No secrets** in code, history, fixtures, or screenshots
-- [ ] `scripts/demo.sh` runs the full loop with `USE_FAKES=1`
+- [ ] `scripts/demo.sh` runs the full loop with `SYNTHETIC_SENSORS=1`
 - [ ] Repo history is inside the contest window
 
 **The video**

@@ -1,0 +1,14 @@
+{
+  "scenario_id": "intake-mixed-shelter",
+  "kind": "intake",
+  "coverage": "Req 21.1 intake scenario per language: mixed Tamil-English (ta-en); SHELTER category",
+  "input_fixture_id": "MSG-003",
+  "expected_observable_outcome": {
+    "source_language": "ta-en",
+    "request_category": "SHELTER",
+    "urgency_band": "URGENT",
+    "dispatch_eligible": true,
+    "forced_immediate": false
+  },
+  "pass_condition": "The code-mixed Tamil-English shelter request classifies as SHELTER/URGENT and, with no mobility or medical need, stays dispatch-eligible with no forced-urgency override."
+}

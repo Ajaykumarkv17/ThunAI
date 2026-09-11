@@ -13,7 +13,7 @@ The judged premise this design is built around: *the agent runs autonomously and
 - When it pauses, it uses Strands' interrupt/resume mechanism to return control cleanly rather than blocking a compute session for hours, persists everything needed to resume in a **different process**, and delivers a hand-authored (not model-generated) message to the coordinator with what was decided, why they're being asked, the stakes, the default if ignored, and one-tap options (Req 11.3).
 - The coordinator's tap resumes the paused run, the run finishes, and every step — automatic or escalated — lands in an append-only `Audit_Ledger`.
 
-All data used in fixtures, tests, and the recorded demo is synthetic. ThunAI is a coordination aid for a volunteer committee, not an official emergency service, and this disclaimer is surfaced on every resident-facing view (Req 18.1, 18.6).
+The resident records and the hazard-sensor readings used in the seed dataset, tests, and the recorded demo are synthetic — but the AWS services holding, acting on, and displaying them are live (the only synthetic *backend* anywhere is the sensor feed; see design principle 5). ThunAI is a coordination aid for a volunteer committee, not an official emergency service, and this disclaimer is surfaced on every resident-facing view (Req 18.1, 18.6).
 
 ### Design principles carried through every section below
 
@@ -21,7 +21,7 @@ All data used in fixtures, tests, and the recorded demo is synthetic. ThunAI is 
 2. **Deterministic code for anything safety-critical or auditable; a model only where free text, trade-offs, or natural language genuinely require one.** This is `idea.md`'s own framing (§8–9) and it is treated as load-bearing, not decorative.
 3. **Pause is "return and persist", never "block".** An AgentCore Runtime session has a default 900s idle timeout; a paused escalation can legitimately sit for up to two hours (`WATCH` deadline). The architecture therefore never holds a runtime session open across a human decision.
 4. **Every write is idempotent, every schedule tick is bounded, every failure is recorded — never silent.** Req 1.6, 15.2–15.11, 16.7–16.9.
-5. **Fixtures are a first-class backend, not a demo hack.** `Fixture_Backend` implements the same interface as every real integration so the whole trigger-to-resolution loop runs with zero third-party credentials (Req 19.5).
+5. **Real by default; only the sensor feed is synthetic.** ThunAI is a full-fledged cloud-deployed system: State_Store, the `Knowledge_Base` (Bedrock Knowledge Base on an S3 Vectors vector store), `Notification_Provider` (SNS SMS + SES email), the real-time push interface, authentication, and the agent runtime all run against live AWS services in the demonstrated system. The **only** interface with a synthetic backend is `Sensor_Provider`, selected by the `Synthetic_Sensor_Flag`, because a real flood cannot be summoned on demand — every other tool queries and mutates real data (Req 19.5). Synthetic *data* (synthetic resident records, synthetic hazard readings) is distinct from synthetic *backends*: the data is synthetic for privacy and demonstrability, but the stores holding it and the tools acting on it are real. CI tests use in-process test doubles for every interface (Req 21.10) — a testing mechanism, not the deployed system.
 
 ---
 
@@ -57,7 +57,8 @@ flowchart TB
         DDBAUDIT[("DynamoDB\nthunai-audit\nappend-only")]
         DDBMEM[("DynamoDB\nthunai-memory\nbaselines/preferences")]
         ACMEM[("AgentCore Memory\ncoordinator semantic/\nsummary/preference")]
-        S3["S3\nfixtures / hazard images /\ncontext offload"]
+        S3["S3\nhazard images / seed docs /\ncontext offload"]
+        KB[("Bedrock Knowledge Base\nS3 Vectors vector store\ncommunity safety docs")]
     end
 
     subgraph Escalation["Escalation path — the only place a human is required"]
@@ -87,6 +88,7 @@ flowchart TB
     ORCH --> INT
     ORCH --> DIS
     ORCH --> KNOW
+    KNOW -->|"Retrieve (RAG)"| KB
     HARNESS -.enforces.-> IncidentGraph
     HARNESS -.enforces.-> ORCH
     IncidentGraph <--> DDBSTATE
@@ -226,7 +228,7 @@ ThunAI/
 ├── docs/
 │   └── architecture.png             # exported from the Mermaid diagram above
 ├── requirements.txt                 # pinned: strands-agents==1.54.0, strands-agents-tools==0.8.7, ...
-├── .env.example                     # USE_FAKES=1 by default, every var listed, no real values
+├── .env.example                     # SYNTHETIC_SENSORS=1 by default; every var listed, no real values
 ├── .gitignore
 ├── agents/
 │   ├── __init__.py
@@ -246,7 +248,7 @@ ThunAI/
 │   ├── intake_tools.py               # resolve_location, detect_language, dedupe_check
 │   ├── dispatch_tools.py             # find_candidate_responders, assign_responder
 │   ├── alert_tools.py                # get_channel_limits, get_shelter_capacity, deliver_alert
-│   ├── knowledge_tools.py            # retrieve_passages (Bedrock KB)
+│   ├── knowledge_tools.py            # retrieve_passages (live Bedrock KB, S3 Vectors)
 │   └── escalation_tools.py           # create_escalation (called by the deterministic gate, not the model)
 ├── harness/
 │   ├── hooks.py                      # ApprovalAuditHook, CallCountCap, SpendCap, NotificationCap
@@ -262,10 +264,10 @@ ThunAI/
 │   ├── entities.py                    # Incident, Responder, Shelter, EscalationRecord, AuditEntry
 │   └── lifecycle.py                   # Request_Lifecycle transition table + validator
 ├── integrations/
-│   ├── __init__.py                    # backend selector: USE_FAKES env var
-│   ├── sensor_provider.py             # Protocol + FixtureSensorProvider + LiveSensorProvider (Gateway)
-│   ├── notification_provider.py       # Protocol + FixtureNotifier + SnsSesNotifier
-│   └── knowledge_provider.py          # Protocol + FixtureKnowledge + BedrockKBKnowledge
+│   ├── __init__.py                    # provider resolver + live-resource/credential absent abort (Req 19.13)
+│   ├── sensor_provider.py             # Protocol + SyntheticSensorProvider + LiveSensorProvider (SYNTHETIC_SENSORS)
+│   ├── notification_provider.py       # Protocol + SnsSesNotificationProvider (LIVE ONLY, no synthetic backend)
+│   └── knowledge_provider.py          # Protocol + BedrockKBKnowledgeProvider (LIVE, S3 Vectors KB, no synthetic backend)
 ├── memory/
 │   ├── state_store.py                 # thunai-state DynamoDB access (entities, idempotency)
 │   ├── audit_ledger.py                # thunai-audit DynamoDB access (append-only)
@@ -284,6 +286,7 @@ ThunAI/
 │   └── stacks/
 │       ├── data_stack.py
 │       ├── auth_stack.py
+│       ├── knowledge_stack.py         # Bedrock Knowledge Base + S3 Vectors vector store + doc-source bucket + ingestion
 │       ├── agentcore_stack.py
 │       ├── triggers_stack.py
 │       ├── escalation_stack.py
@@ -297,10 +300,11 @@ ThunAI/
 │   │   ├── resident/                   # Resident_Status_Page (public)
 │   │   └── shared/                     # AppSync Events client, auth, i18n
 │   └── amplify.yml
-├── fixtures/
-│   ├── seed_dataset.json               # synthetic residents/responders/shelters/incidents
-│   ├── hazard_readings/                # 30-day synthetic baseline series
-│   └── sample_messages/                # multilingual resident message fixtures
+├── seed/
+│   ├── seed_dataset.json               # synthetic residents/responders/shelters — REAL rows written to DynamoDB by seed.sh
+│   ├── hazard_readings/                # 35-day synthetic sensor series (replayed by SyntheticSensorProvider)
+│   ├── knowledge_docs/                 # curated community safety documents ingested into the S3 Vectors KB
+│   └── sample_messages/                # multilingual resident message samples (sent through the real ingestion endpoint)
 ├── evals/
 │   ├── scenarios/                      # 20+ recorded scenarios (Req 21.1)
 │   └── results/
@@ -646,7 +650,7 @@ def decide(decision) -> "Verdict_":
 
 `validate_policy()` runs once at process start (entrypoint cold start) and its result is cached; Req 10.10's behaviour ("execute no action without human approval... notify the coordinator that the policy is unusable") is implemented by having `decide()` unconditionally return `ASK_HUMAN` for every call for the remainder of the process if `validate_policy()` found any defect, and by the entrypoint sending one `config_fault` escalation notification per cold start when that happens — this is deliberately a fail-safe global switch rather than a per-call check, so a defect can never be missed by one call path and caught by another.
 
-**Tuning against the seeded demo (Req 11.9 — exactly one Escalation_Record per routine sweep run).** The seeded fixture dataset (§3.9) is constructed so that, over one sweep: (a) five to six requests/updates resolve with confidence ≥ 0.75 in never/neutral categories and execute silently, and (b) exactly one dispatch decision involves a `mobility-assistance` or `medical-need` indicator (an always-ask category per Req 6.5), producing the run's single escalation. This is verified by an eval scenario, not left to chance (§7, scenario `sweep_single_escalation`).
+**Tuning against the seeded demo (Req 11.9 — exactly one Escalation_Record per routine sweep run).** The seed dataset (§3.9) is constructed so that, over one sweep: (a) five to six requests/updates resolve with confidence ≥ 0.75 in never/neutral categories and execute silently, and (b) exactly one dispatch decision involves a `mobility-assistance` or `medical-need` indicator (an always-ask category per Req 6.5), producing the run's single escalation. This is verified by an eval scenario, not left to chance (§7, scenario `sweep_single_escalation`).
 
 ### 3.5 Hand-authored escalation templates (Req 11.3 — no field is model-generated)
 
@@ -795,10 +799,12 @@ HARNESS_HOOKS = [ApprovalGateHook(), ToolCallCapHook(), SpendCapHook(), Notifica
 
 `redact_fields()` (Req 16.10) walks a configured field-name list (`resident_name`, `resident_contact`, `resident_address`, any key matching `*_secret`, `*_credential`, `*_api_key`) recursively through the input dict and replaces matched values with `"[REDACTED]"` before the dict ever reaches a log call, a trace attribute, or `append_audit_entry` — applied at the hook layer so no individual tool author can forget it (this is the mechanism, independent per-call from any tool's own code, that makes redaction "complete" in the correctness-property sense of §7).
 
-### 3.7 Fixture/real backend seam (Req 19.5, 19.6)
+### 3.7 Backend seam — real by default, synthetic only for the sensor feed (Req 19.5, 19.6)
+
+The integration seam is **asymmetric on purpose**. Only `Sensor_Provider` has a synthetic backend (a real flood cannot be summoned for a demo); `Notification_Provider` and `Knowledge_Provider` are **live in every environment** and have no synthetic implementation. This is the concrete expression of design principle 5: ThunAI is a deployed cloud system, not a local mock.
 
 ```python
-# integrations/sensor_provider.py
+# integrations/sensor_provider.py — THE ONLY interface with a synthetic backend
 from typing import Protocol
 import os
 
@@ -807,25 +813,74 @@ class SensorProvider(Protocol):
     async def get_rainfall_rate(self, reach_id: str) -> "Reading": ...
     async def get_dam_release(self, reach_id: str) -> "Reading": ...
 
-class FixtureSensorProvider:
-    """Reads from fixtures/hazard_readings/*.json, deterministic, zero network calls."""
+class SyntheticSensorProvider:
+    """Replays seed/hazard_readings/*.json — the committed synthetic time series.
+    Selected ONLY by SYNTHETIC_SENSORS=1. Deterministic, no sensor network call."""
     def __init__(self, dataset_path: str): ...
     async def get_river_level(self, reach_id): return self._lookup(reach_id, "river_level")
     # ...
 
 class LiveSensorProvider:
     """Wraps an AgentCore Gateway target (Lambda or REST) exposing the same three readings.
-    Only constructed when USE_FAKES=0 and the Gateway target credentials resolve."""
+    Selected when SYNTHETIC_SENSORS=0 and the Gateway target credentials resolve."""
     def __init__(self, gateway_tool_prefix: str): ...
     async def get_river_level(self, reach_id): ...
 
 def sensor_provider() -> SensorProvider:
-    if os.environ.get("USE_FAKES", "1") == "1":
-        return FixtureSensorProvider(dataset_path=os.environ["FIXTURE_DATASET_PATH"])
+    # SYNTHETIC_SENSORS is the ONE flag; it selects the sensor backend and nothing else (Req 19.5).
+    if os.environ.get("SYNTHETIC_SENSORS", "1") == "1":
+        return SyntheticSensorProvider(dataset_path=os.environ["SENSOR_FIXTURE_PATH"])
     return LiveSensorProvider(gateway_tool_prefix=os.environ["SENSOR_GATEWAY_TARGET"])
 ```
 
-`notification_provider.py` and `knowledge_provider.py` follow the identical `Protocol` + `Fixture*` + real-implementation shape. `USE_FAKES=1` is the default in `.env.example` (Req 19.6), and with it set, every external interface resolves to a fixture, so `scripts/demo.sh` completes the full trigger-to-resolution loop with zero third-party credentials and zero outbound calls other than the Bedrock model invocation itself (Req 19.5) — the model call is not "fake-able" without losing the point of the demo, and Req 19.5's exception clause ("no third-party service **other than the configured model provider**") accounts for exactly this.
+```python
+# integrations/knowledge_provider.py — LIVE ONLY, no synthetic backend
+class KnowledgeProvider(Protocol):
+    async def retrieve(self, question: str, top_k: int) -> list["Passage"]: ...
+
+class BedrockKBKnowledgeProvider:
+    """Queries the Bedrock Knowledge Base (S3 Vectors vector store) via the live
+    bedrock-agent-runtime Retrieve API. There is no synthetic KB — the demo shows real RAG."""
+    def __init__(self, knowledge_base_id: str, region: str): ...
+    async def retrieve(self, question, top_k):
+        resp = await self._client.retrieve(
+            knowledgeBaseId=self.kb_id,
+            retrievalQuery={"text": question},
+            retrievalConfiguration={"vectorSearchConfiguration": {"numberOfResults": top_k}},
+        )
+        return [Passage(id=r["location"], text=r["content"]["text"],
+                        score=r["score"], source_version=r["metadata"]["source_version"])
+                for r in resp["retrievalResults"]]
+
+def knowledge_provider() -> KnowledgeProvider:
+    return BedrockKBKnowledgeProvider(
+        knowledge_base_id=os.environ["THUNAI_KNOWLEDGE_BASE_ID"],   # from the deployed KB stack
+        region=os.environ.get("AWS_REGION", "us-west-2"))
+```
+
+```python
+# integrations/notification_provider.py — LIVE ONLY, no synthetic backend
+class NotificationProvider(Protocol):
+    async def send_sms(self, phone: str, body: str, idempotency_key: str) -> "SendResult": ...
+    async def send_email(self, address: str, subject: str, body: str, idempotency_key: str) -> "SendResult": ...
+
+class SnsSesNotificationProvider:
+    """Real Amazon SNS (SMS) + Amazon SES (email). Idempotent per key so a resumed run
+    never re-notifies (Req 16.6 notification cap + idempotency)."""
+    def __init__(self, region: str, sender_email: str): ...
+    # send_sms -> sns.publish(PhoneNumber=...); send_email -> ses.send_email(...)
+
+def notification_provider() -> NotificationProvider:
+    return SnsSesNotificationProvider(
+        region=os.environ.get("AWS_REGION", "us-west-2"),
+        sender_email=os.environ["THUNAI_SES_SENDER"])
+```
+
+**Credential/resource-absent abort (Req 19.13).** `integrations/__init__.py` resolves each provider once at cold start; for the live providers it asserts the required resource identifier/credential is present (`THUNAI_KNOWLEDGE_BASE_ID`, `THUNAI_SES_SENDER`, the state-table names, the Cognito pool id) and aborts the run naming each absent value **before** the first call to that interface, leaving State_Store unchanged. Only `SYNTHETIC_SENSORS=1` removes the requirement for a live sensor credential — it removes nothing else.
+
+**`SYNTHETIC_SENSORS=1` is the default in `.env.example` (Req 19.6)**, so the demonstrated sweep replays the committed rising-river series while State_Store, the Knowledge_Base, SNS/SES, AppSync, and Cognito are all live. `scripts/demo.sh` triggers the loop by invoking the **deployed** agent runtime (not a local process), and the only outbound calls it avoids are to a live *sensor* source — every other call is real.
+
+**Amazon SNS SMS / SES sandbox note (Req 19.10a).** A new AWS account starts with SNS SMS and SES in sandbox mode, which only deliver to verified recipients. The README documents the one-time verification of the coordinator's own phone number (SNS) and email address (SES) so the demonstrated escalation-notification path works without requesting production sending access — sandbox is sufficient for a demo to your own verified contacts.
 
 ### 3.8 Frontend architecture (Req 12, 13, 14)
 
@@ -893,16 +948,19 @@ async function submitOption(escalationId: string, optionId: string) {
 
 **i18n**: `shared/i18n.ts`, a small keyed dictionary per `Community_Language_Configuration` entry (Tamil, English at minimum), with a documented "translation unavailable, falling back to default language" indicator per field when a key is missing (Req 14.10) — this is static UI-chrome translation, distinct from the LLM-composed resident-facing *content* which is generated per-language by `Alert_Agent`/`Knowledge_Agent` at agent runtime, not by this dictionary.
 
-### 3.9 Fixture dataset contents (Req 19.5–19.7, 18.1)
+### 3.9 Seed dataset contents (Req 19.5–19.7, 18.1)
 
-`fixtures/seed_dataset.json` (all synthetic, no identifiable living resident — Req 18.1):
+The seed data is **synthetic content written into real stores**, not a synthetic backend. `scripts/seed.sh` writes these rows into the live `thunai-state` DynamoDB table and ingests the knowledge docs into the live S3 Vectors Knowledge_Base — the agents then query and mutate real data.
+
+`seed/seed_dataset.json` (all synthetic, no identifiable living resident — Req 18.1):
 - 14 responders: id, name (synthetic), home coordinates, equipment (`boat`, `4x4`, `none`), availability.
 - 3 shelters: id, name, coordinates, total capacity summing to 120 (e.g. 50/40/30), current placements = 0 at seed.
 - ~900 synthetic resident location points along the reach (used only for aggregate affected-area counts, Req 14.5 — never individually exposed).
-- 6-8 pre-authored resident message fixtures spanning Tamil and English, RESCUE/MEDICAL/SHELTER/INFORMATION categories, one with a mobility-assistance phrase, one ambiguous-location message (resolves to 2+ candidates), one off-topic (routes to manual triage).
-- `fixtures/hazard_readings/`: a 35-day synthetic time series per reading type (30 days of baseline + 5 days including the demo's rising-river scenario), so `Memory_Store`'s 30-day baseline requirement (Req 3.1, 17.3) is satisfiable from fixtures alone.
+- 6-8 pre-authored resident message samples spanning Tamil and English, RESCUE/MEDICAL/SHELTER/INFORMATION categories, one with a mobility-assistance phrase, one ambiguous-location message (resolves to 2+ candidates), one off-topic (routes to manual triage). These are fed through the **real** ingestion endpoint during the demo, not injected directly.
+- `seed/knowledge_docs/`: the curated community flood-safety documents (water safety, shelter guidance, what-to-take, etc.) that `seed.sh` ingests into the S3 Vectors Knowledge_Base so `Knowledge_Agent` answers from a real, populated vector index.
+- `seed/hazard_readings/`: a 35-day synthetic time series per reading type (30 days of baseline + 5 days including the demo's rising-river scenario), replayed by `SyntheticSensorProvider` — the one and only synthetic backend (Req 19.5) — so `Memory_Store`'s 30-day baseline requirement (Req 3.1, 17.3) is satisfiable without a live sensor.
 
-`scripts/seed.sh` truncates and re-writes `thunai-state`/`thunai-memory` fixture tables (or, for the fixture-backend path, simply re-points reads at `seed_dataset.json` — no destructive DynamoDB operation needed in `USE_FAKES=1` mode) in one idempotent command (Req 19.7). `scripts/demo.sh` runs `mode=sweep` once against the seeded dataset end to end, asserting the single-escalation property, and exits non-zero naming the first incomplete step on failure (Req 19.12).
+`scripts/seed.sh` (Req 19.7) is one idempotent command against the deployed account: it writes the responder/shelter/resident rows into `thunai-state` (conditional puts, so re-running produces the same state), starts the S3 Vectors Knowledge_Base ingestion job over `seed/knowledge_docs/`, and re-points `SENSOR_FIXTURE_PATH` at `seed/hazard_readings/`. `scripts/demo.sh` triggers `mode=sweep` by invoking the **deployed** agent runtime end to end (real State_Store, real KB, real SNS/SES, real AppSync), asserts the single-escalation property, and exits non-zero naming the first incomplete step on failure (Req 19.12).
 
 ### 3.10 Design Question 4 — Memory design: three distinct stores for three distinct jobs
 
@@ -935,9 +993,12 @@ Mapping Req 17's specific obligations onto these three mechanisms:
 app = App()
 data = DataStack(app, "ThunaiData")                          # DynamoDB tables + Streams, S3 buckets
 auth = AuthStack(app, "ThunaiAuth")                            # Cognito user pool + coordinator/responder groups
+knowledge = KnowledgeStack(app, "ThunaiKnowledge")            # Bedrock Knowledge Base + S3 Vectors vector store
+                                                               #   + doc-source S3 bucket + ingestion data source
 agentcore = AgentCoreStack(app, "ThunaiAgentCore",             # Runtime, Memory, Gateway, Identity
                             state_table=data.state_table, audit_table=data.audit_table,
-                            memory_table=data.memory_table, cognito_pool=auth.user_pool)
+                            memory_table=data.memory_table, cognito_pool=auth.user_pool,
+                            knowledge_base_id=knowledge.knowledge_base_id)   # KB id injected into runtime env
 triggers = TriggersStack(app, "ThunaiTriggers",                # EventBridge Scheduler, API Gateway, Lambdas
                           runtime_arn=agentcore.runtime.attr_agent_runtime_arn)
 escalation = EscalationStack(app, "ThunaiEscalation",          # Escalation_Service Lambda, SNS/SES, timeout sweeper
@@ -951,11 +1012,13 @@ frontend = FrontendStack(app, "ThunaiFrontend",                # Amplify App + B
                           cognito_pool_id=auth.user_pool.user_pool_id,
                           escalation_api_url=escalation.api_url)
 # explicit deps beyond what construct props already force, for clarity in `cdk diff`:
-agentcore.add_dependency(data); agentcore.add_dependency(auth)
+agentcore.add_dependency(data); agentcore.add_dependency(auth); agentcore.add_dependency(knowledge)
 triggers.add_dependency(agentcore); escalation.add_dependency(agentcore)
 realtime.add_dependency(data); frontend.add_dependency(realtime); frontend.add_dependency(auth)
 app.synth()
 ```
+
+**`KnowledgeStack` — Bedrock Knowledge Base on Amazon S3 Vectors (resolves Open Question 6).** The vector store is **Amazon S3 Vectors**, chosen deliberately over OpenSearch Serverless: for a small curated document set (tens of community safety documents), S3 Vectors has no always-on baseline cost, which matters against the $50 hackathon credit — OpenSearch Serverless bills a minimum OCU baseline continuously even when idle. The stack provisions a document-source S3 bucket (seeded from `seed/knowledge_docs/`), an S3 Vectors vector bucket + vector index, a Bedrock Knowledge Base with an S3 Vectors storage configuration and a Titan/Nova-family embedding model, and a data source pointing at the document bucket; `seed.sh` starts the ingestion job. `Knowledge_Provider` (§3.7) queries it through the live `bedrock-agent-runtime` `Retrieve` API — the `strands-agents-tools` `retrieve` tool is **not** used (it is deprecated). The KB id is a stack output injected into the AgentCore runtime environment as `THUNAI_KNOWLEDGE_BASE_ID`. This stack has no dependency on `data`/`auth`, so it deploys in parallel with them; `agentcore` depends on it because the runtime needs the KB id at deploy time.
 
 **arm64 pre-create check (Req 19.2)** — `infra/checks/arch_guard.py` runs during `agentcore_stack.py`'s construction, *before* the `CfnRuntime` L1 is instantiated, so a bad artefact fails `cdk synth` rather than reaching `CREATE_FAILED` in AWS:
 
@@ -1473,7 +1536,7 @@ Error handling in ThunAI is organised around one rule: **a failure is either rec
 | `Memory_Store` | Retrieval fails after configured retries | Failure recorded; `memory-unavailable` escalation; persisted state unchanged | 17.10 |
 | Credential resolution | External credential retrieval fails | Dependent tool call blocked; store unchanged; credential-unavailable entry (no value); `dependency-unavailable` escalation | 18.10 |
 | Deployment | Non-arm64 build artefact | Deployment aborted before `CfnRuntime` creation, with an explicit architecture-mismatch error | 19.2 |
-| Deployment | `USE_FAKES=0` and a required credential absent | Run aborted before the first call to that interface; error names each absent credential; store unchanged | 19.13 |
+| Deployment | A required live credential or resource id absent (KB id, SES sender, table names, Cognito pool) | Run aborted before the first call to that interface; error names each absent value; store unchanged | 19.13 |
 | Observability | Trace/metric emission fails | Emission failure recorded; run continues to its terminal status unaffected | 20.9 |
 
 **General pattern applied everywhere above**: detect → record (audit, never silent) → either recover deterministically (retry within budget, fall back to available data, reject the write) → or escalate with the same hand-authored-template mechanism used for ordinary decisions (§3.5), so a coordinator sees infrastructure failures through the same one screen as substantive decisions, not a second, separate alerting channel.
@@ -1502,7 +1565,7 @@ Chosen because it's the standard, actively-maintained PBT library for Python (Th
 
 ### Strands Evals scenario suite (`evals/scenarios/`)
 
-At least 20 recorded scenarios (Req 21.1) run against `Fixture_Backend` with zero third-party credentials, using `strands-agents-evals`' **deterministic** evaluators (exact match on structured outputs, trajectory checks on which tools were called, and environment-state assertions) rather than an LLM judge — the workflow's own guidance is clear that deterministic checks are right for CI regression, and every ThunAI decision is already a typed Pydantic model, so exact-match assertions on `structured_output` fields are both possible and stronger than an LLM's opinion of "did this look right." Coverage required by Req 21.1: one scenario per severity band (NORMAL/WATCH/WARNING/EVACUATE), one intake scenario per configured language, one dispatch-with-capacity and one dispatch-without-capacity scenario, one escalation-approval, one escalation-decline, one escalation-timeout scenario — 11 scenarios minimum from this list alone, padded to 20+ with the "single-escalation over a full sweep" demo-tuning scenario (§3.4) and per-agent-role smoke scenarios. Each scenario file declares `scenario_id`, `input_fixture_id`, `expected_observable_outcome`, `pass_condition` (Req 21.11). Goal-success rate is `passed / total * 100`, one decimal place, stated in the README with the total count and the `Eval_Suite` version (Req 21.2).
+At least 20 recorded scenarios (Req 21.1) run against in-process test doubles for every external interface (a CI-only mechanism, distinct from the deployed system — Req 21.10) with zero third-party credentials and no live AWS call, using `strands-agents-evals`' **deterministic** evaluators (exact match on structured outputs, trajectory checks on which tools were called, and environment-state assertions) rather than an LLM judge — the workflow's own guidance is clear that deterministic checks are right for CI regression, and every ThunAI decision is already a typed Pydantic model, so exact-match assertions on `structured_output` fields are both possible and stronger than an LLM's opinion of "did this look right." Coverage required by Req 21.1: one scenario per severity band (NORMAL/WATCH/WARNING/EVACUATE), one intake scenario per configured language, one dispatch-with-capacity and one dispatch-without-capacity scenario, one escalation-approval, one escalation-decline, one escalation-timeout scenario — 11 scenarios minimum from this list alone, padded to 20+ with the "single-escalation over a full sweep" demo-tuning scenario (§3.4) and per-agent-role smoke scenarios. Each scenario file declares `scenario_id`, `input_fixture_id`, `expected_observable_outcome`, `pass_condition` (Req 21.11). Goal-success rate is `passed / total * 100`, one decimal place, stated in the README with the total count and the `Eval_Suite` version (Req 21.2).
 
 ### Integration tests (`tests/integration/`)
 
@@ -1532,7 +1595,7 @@ Complementary to the layer-by-layer table in Error Handling above, this view gro
 | AppSync Events (realtime publish) | `stream_publisher_lambda.py`'s publish call failure is caught and retried with backoff (DynamoDB Streams' own retry-until-success or DLQ semantics apply upstream); client-side, `useIncidentUpdates`'s 15s-silence timer | Publish failure: DynamoDB Streams redelivers (no data loss, just delay). Client: staleness indicator with data age shown, continues attempting to resume | 12.6, 14.9 |
 | SNS/SES (escalation notification channel) | `Escalation_Service` counts delivery attempts; 3 attempts within 60s | Delivery failure recorded; `EscalationRecord` stays `OPEN` with its deadline/default action unchanged; `Decision_Inbox` shows a delivery-failure state on that record (the coordinator can still resolve it by visiting the console directly even if the SMS never arrived) | 11.11 |
 | Bedrock Knowledge Base (`Knowledge_Agent` retrieval) | Retrieval call failure or timeout (configured retrieval timeout) | Unavailable response; question routed to coordinator via `Escalation_Service` | 8.7 |
-| AgentCore Gateway target (live sensor/notification backends only — never invoked when `USE_FAKES=1`) | Gateway tool-call failure surfaces as a normal tool-call exception to the calling agent | Treated identically to the underlying dependency's own row above (e.g. a Gateway-fronted sensor failure is handled as a Sensor feed failure) — the Gateway adds no new failure semantics of its own, only a transport hop | 18.7 (only declared servers ever connected; a connection attempt to an undeclared server, including one named in model output, is refused and recorded) |
+| AgentCore Gateway target (live sensor backend only — never invoked when `SYNTHETIC_SENSORS=1`) | Gateway tool-call failure surfaces as a normal tool-call exception to the calling agent | Treated identically to the underlying dependency's own row above (e.g. a Gateway-fronted sensor failure is handled as a Sensor feed failure) — the Gateway adds no new failure semantics of its own, only a transport hop | 18.7 (only declared servers ever connected; a connection attempt to an undeclared server, including one named in model output, is refused and recorded) |
 | External credential resolution (Secrets Manager / Identity provider) | Credential fetch raises before the dependent tool call is attempted | Dependent tool call blocked; `State_Store` unchanged for that call; credential-unavailable audit entry with no credential value; `dependency-unavailable` escalation | 18.10 |
 
 ---
@@ -1560,7 +1623,7 @@ MODEL_FOR_ROLE = {
 
 `validate_config()` (paired with `escalation_policy.validate_policy()`) runs at cold start and rejects the run naming each absent value if `THUNAI_LOW_COST_MODEL_ID`/`THUNAI_HIGH_CAPABILITY_MODEL_ID`/`AWS_REGION`/every named `Escalation_Policy` threshold env override is missing (Req 19.9).
 
-**Expected cost/latency per run (seeded demo, `USE_FAKES=1`)** — estimated from the graph topology rather than measured pre-implementation; the actual measured means over ≥10 runs go in the README per Req 20.10, and this table is the design-time budget those measurements are checked against:
+**Expected cost/latency per run (seeded demo, `SYNTHETIC_SENSORS=1`, all other services live)** — estimated from the graph topology rather than measured pre-implementation; the actual measured means over ≥10 runs go in the README per Req 20.10, and this table is the design-time budget those measurements are checked against:
 
 | Run type | Nodes touched | Model calls (approx) | Est. tokens/run | Est. latency | Est. cost/run (USD, blended low/high-cost pricing) |
 |---|---|---|---|---|---|
@@ -1569,7 +1632,7 @@ MODEL_FOR_ROLE = {
 | Resume after coordinator approval | Reconstructed paused node only (no re-run of prior nodes) | 1-2 | ~1,500 | ~3-5s | ~$0.01 |
 | Ad-hoc coordinator chat turn | `Coordinator_Orchestrator` + 1 specialist tool call | 2 | ~2,500 | ~4-6s | ~$0.02 |
 
-Over the 16-day build and the recorded demo (a handful of full sweeps plus the eval suite's 20+ scenarios run repeatedly in CI), total spend is projected at well under $10 of model cost — comfortably inside the **$50 AWS credit**, with the remainder of the credit budget reserved for DynamoDB/Lambda/AppSync's negligible pay-per-use cost at this data volume (900 residents, 14 responders — far below any service's free-tier-adjacent pricing tier). The per-run `SpendCapHook` default of 200 minor currency units ($2.00) is deliberately far above the observed per-run cost, so it functions as a genuine safety backstop against a runaway loop, not a budget the demo would ever brush up against — this gap is intentional and stated in the README's Escalation_Policy section as the rationale for that specific cap value. `AWS Budgets` (Req 20.4) is provisioned in `observability_stack.py` at a $20 threshold as a second, account-level backstop below the full $50 credit, giving a warning margin before the credit is exhausted.
+Over the 16-day build and the recorded demo (a handful of full sweeps plus the eval suite's 20+ scenarios run against in-process doubles in CI), total spend is projected at well under $10 of model cost — comfortably inside the **$50 AWS credit**, with the remainder of the credit budget reserved for DynamoDB/Lambda/AppSync/SNS/SES pay-per-use cost (negligible at 900 residents / 14 responders) plus the Knowledge_Base cost. The **S3 Vectors** choice is what keeps the KB cheap: a few dollars of one-time embedding cost over a small curated document set and per-query pay-per-use, with **no always-on vector-store baseline** — the reason S3 Vectors was chosen over OpenSearch Serverless (which bills a continuous OCU minimum even when idle) for this hackathon budget. The per-run `SpendCapHook` default of 200 minor currency units ($2.00) is deliberately far above the observed per-run cost, so it functions as a genuine safety backstop against a runaway loop, not a budget the demo would ever brush up against — this gap is intentional and stated in the README's Escalation_Policy section as the rationale for that specific cap value. `AWS Budgets` (Req 20.4) is provisioned in `observability_stack.py` at a $20 threshold as a second, account-level backstop below the full $50 credit, giving a warning margin before the credit is exhausted.
 
 ---
 
@@ -1584,7 +1647,7 @@ Over the 16-day build and the recorded demo (a handful of full sweeps plus the e
 | 5 | Resident request intake | `Intake_Agent` (§3.1), `EmergencyRequest` schema (§4.1), Properties 9, 10 |
 | 6 | Responder dispatch decisions | `Dispatch_Agent` (§3.1), `DispatchDecision` schema, conditional-update functions (§4.4), Properties 12, 13, 9 |
 | 7 | Alert composition & multilingual delivery | `Alert_Agent` (§3.1), `AlertDraft` schema, `Community_Language_Configuration`, idempotent delivery key (§4.4 pattern) |
-| 8 | Community safety knowledge answers | `Knowledge_Agent` (§3.1), Bedrock Knowledge Base integration, Property 16 |
+| 8 | Community safety knowledge answers | `Knowledge_Agent` (§3.1), `KnowledgeStack` (Bedrock KB + S3 Vectors, §3.11), `Knowledge_Provider` (§3.7), Property 16 |
 | 9 | Safety and quality review before release | `Safety_QA_Agent` (§3.1), `SafetyReview` schema, Design Question 3's gate composition |
 | 10 | Escalation policy and typed decisions | `policy/escalation_policy.py` (§3.4), Properties 6, 7, 8; Design Question 3 |
 | 11 | Escalation delivery, human response, resume | `Escalation_Service` (§3.5), Design Question 2 sequence diagram, `EscalationRecord` schema, Properties 2 (idempotent resolution) |
@@ -1594,8 +1657,8 @@ Over the 16-day build and the recorded demo (a handful of full sweeps plus the e
 | 15 | Shared live state, idempotency, resumability | DynamoDB design §4.4, Properties 2, 3, 19; `execute_incident_graph`'s run-progress persistence (§3.2) |
 | 16 | Reliability harness enforced by hooks | `harness/hooks.py` (§3.6), Properties 15, 17, 18 |
 | 17 | Memory across separate runs | Memory design §3.10, Design Question 4 |
-| 18 | Safety, privacy, enforced boundaries | Fixture dataset §3.9, IAM least-privilege (§ unit tests), MCP server allowlist (§3.4's note), README boundaries section (documented, not code) |
-| 19 | Deployment and reproducibility | CDK stack decomposition §3.11, `USE_FAKES` seam §3.7, `.env.example`, `scripts/seed.sh`/`demo.sh` |
+| 18 | Safety, privacy, enforced boundaries | Seed dataset §3.9, IAM least-privilege (§ unit tests), MCP server allowlist (§3.4's note), README boundaries section (documented, not code) |
+| 19 | Deployment and reproducibility | CDK stack decomposition §3.11 (incl. `KnowledgeStack`), `SYNTHETIC_SENSORS` sensor-only seam §3.7, `.env.example`, `scripts/seed.sh`/`demo.sh` (invoke deployed runtime) |
 | 20 | Observability and cost control | Cost Model (above), model routing (`agents/config.py`), `observability_stack.py`, OTel wiring |
 | 21 | Evaluation and correctness verification | Testing Strategy, Correctness Properties, `evals/scenarios/` |
 | 22 | Submission artefacts | Repository layout (§ Architecture), Mermaid diagrams (§ Architecture, § Data Models), README template (documented externally, not part of this design's code) |
@@ -1611,7 +1674,7 @@ These are the items this design could not confirm against currently available do
 3. **`GraphBuilder`'s exact API for conditional edges** — this design writes `add_edge("a", "b", condition=lambda ctx: ...)` based on the verified research's mention of "conditional edges via a condition function," but the exact signature of `condition` (what `ctx` exposes, whether it's the `MultiAgentResult` object or something narrower) needs confirmation against the current SDK version before `agents/incident_graph.py` is implemented.
 4. **`aws_cdk.aws_bedrockagentcore` L1 construct property names** (e.g. whether `CfnRuntime`'s network configuration property is named exactly `networkConfiguration` with a `networkMode` sub-key as shown in the reference sample) should be re-verified against the installed `aws-cdk-lib` version's generated docs at implementation time, since L1 CFN construct property casing/nesting is autogenerated from the CloudFormation resource spec and can shift between CDK releases.
 5. **Hypothesis + Pydantic integration approach** (§ Testing Strategy, Property 9) — whether `hypothesis.extra.pydantic`-style automatic strategy derivation from Pydantic v2 models is mature enough for ThunAI's models (which mix `Literal`, `Field(ge=..., le=...)`, and `Field(max_length=...)` constraints), or whether hand-written `st.builds(...)` strategies per model are the more reliable path — a small spike in the first days of implementation should decide this rather than discovering friction mid-way through writing 5 model round-trip tests.
-6. **Exact Bedrock Knowledge Base retrieval API shape for `Knowledge_Agent`** (`retrieve` deprecated tool vs. a direct `bedrock-agent-runtime` boto3 client call vs. an AgentCore Gateway target wrapping the KB) — the verified research flags `retrieve` as deprecated in `strands-agents-tools`; this design assumes a direct boto3-backed custom tool (`tools/knowledge_tools.py`) rather than the deprecated SDK tool, but the concrete implementation should confirm the current recommended integration path before writing that tool.
+6. **RESOLVED — Bedrock Knowledge Base on Amazon S3 Vectors, queried via direct `bedrock-agent-runtime` boto3.** The vector store is **Amazon S3 Vectors** (chosen over OpenSearch Serverless for its lack of an always-on baseline cost against the $50 credit; §3.11 `KnowledgeStack`, Cost Model). `Knowledge_Provider` (§3.7) calls the live `bedrock-agent-runtime` `Retrieve` API directly; the deprecated `strands-agents-tools` `retrieve` tool is not used. There is no synthetic KB backend — the demo shows real RAG against the populated S3 Vectors index. Two things still to confirm against current docs at implementation time (they do not change the decision, only its exact call shape): (a) the current `aws-cdk-lib`/L1 construct names for the S3 Vectors vector bucket/index and the Bedrock KB `storageConfiguration` that references them, since S3 Vectors is a newer service and construct coverage may lag (fallback: a small custom resource / `AwsCustomResource` calling the control-plane API from the CDK app); (b) the exact `retrievalConfiguration` field names for S3 Vectors-backed KBs. Confirm both before `knowledge_stack.py` and `tools/knowledge_tools.py` are written.
 7. **AppSync Events per-namespace authorization granularity** — whether a single `EventApi` with per-`ChannelNamespace` `NamespaceAuthConfig` can cleanly express "public, unauthenticated read on `/status/*` but Cognito-group-gated on `/incidents/*` and `/escalations/*`" within one API resource, or whether two separate `EventApi` resources (public + authenticated) are cleaner — the CDK L2 construct's authorization override behaviour should be validated with a minimal `cdk synth` spike before `realtime_stack.py` is built out in full.
 8. **Whether AgentCore Runtime's `idleRuntimeSessionTimeout` (default 900s) could terminate a session between a `sweep` invocation's return and a later `resume` invocation for the *same* `runtimeSessionId`**, given this design deliberately uses a **new** `runtimeSessionId` per invocation for the resume call (per the verified research's Req 19.4 distinctness requirement) — confirm that AgentCore Runtime treats each `invoke_agent_runtime` call as a fresh session lookup keyed by the *supplied* `runtimeSessionId` (so a new id for the resume call simply starts a new session, unaffected by the sweep session's idle timeout) rather than requiring session continuity across the pause, which is the assumption Design Question 2 depends on.
 9. **Amazon Translate vs. model-composed multilingual content** — this design routes all resident-facing multilingual composition (alerts, knowledge answers) through the LLM directly (`Alert_Agent`/`Knowledge_Agent` composing in-language, per the verified research's framing that Translate is "only if the model can't serve Req 7.3 adequately") rather than a separate translation service; if evaluation during implementation shows Tamil output quality from the chosen model is inadequate, Amazon Translate should be added as a post-composition correction step for the frontend's static i18n strings (not the LLM-composed content, which needs contextual composition, not literal translation, to satisfy Req 7's "phrased so residents know what to do").

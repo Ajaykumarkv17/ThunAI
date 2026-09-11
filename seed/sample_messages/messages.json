@@ -1,0 +1,132 @@
+[
+  {
+    "message_id": "MSG-001",
+    "sender_reference": "resident-synthetic-014",
+    "source_language_hint": "ta",
+    "text": "எங்க வீட்டுக்குள்ள தண்ணி வந்துடுச்சு, நாங்க 4 பேர் மேல தளத்துல மாட்டிக்கிட்டோம், உடனே படகு அனுப்புங்க! நாங்க Anna Nagar 3வது தெரு, பேருந்து நிலையம் அருகில் இருக்கோம்.",
+    "text_translation_note": "Water has entered our house, 4 of us are stuck on the upper floor, send a boat immediately! We are on Anna Nagar 3rd street, near the bus stand.",
+    "expected": {
+      "request_category": "RESCUE",
+      "occupant_count": 4,
+      "location_reference": "Anna Nagar, 3rd street, near the bus stand",
+      "mobility_assistance": "unknown",
+      "medical_need": "unknown",
+      "urgency_band": "IMMEDIATE",
+      "dispatch_eligible": true
+    }
+  },
+  {
+    "message_id": "MSG-002",
+    "sender_reference": "resident-synthetic-027",
+    "source_language_hint": "en",
+    "text": "My father is having chest pains and difficulty breathing, we are at 12 Lake View Road, please send medical help now.",
+    "text_translation_note": null,
+    "expected": {
+      "request_category": "MEDICAL",
+      "occupant_count": "unknown",
+      "location_reference": "12 Lake View Road",
+      "mobility_assistance": "unknown",
+      "medical_need": true,
+      "urgency_band": "IMMEDIATE",
+      "dispatch_eligible": false
+    }
+  },
+  {
+    "message_id": "MSG-003",
+    "sender_reference": "resident-synthetic-041",
+    "source_language_hint": "ta-en",
+    "text": "Naanga oru 6 members family, water level rising near our street, we need shelter for tonight, konjam help pls. Nangalum Periyar Nagar 2nd cross la irukom.",
+    "text_translation_note": "We are a 6-member family, water level rising near our street, we need shelter for tonight, please help a little. We are also at Periyar Nagar 2nd cross.",
+    "expected": {
+      "request_category": "SHELTER",
+      "occupant_count": 6,
+      "location_reference": "Periyar Nagar, 2nd cross",
+      "mobility_assistance": "unknown",
+      "medical_need": "unknown",
+      "urgency_band": "URGENT",
+      "dispatch_eligible": true
+    }
+  },
+  {
+    "message_id": "MSG-004",
+    "sender_reference": "resident-synthetic-058",
+    "source_language_hint": "en",
+    "text": "We are stranded without drinking water and food for 2 days at Sundar Nagar, near the water tank. Please send supplies when possible.",
+    "text_translation_note": null,
+    "expected": {
+      "request_category": "SUPPLIES",
+      "occupant_count": "unknown",
+      "location_reference": "Sundar Nagar, near the water tank",
+      "mobility_assistance": "unknown",
+      "medical_need": "unknown",
+      "urgency_band": "ROUTINE",
+      "dispatch_eligible": true
+    }
+  },
+  {
+    "message_id": "MSG-005",
+    "sender_reference": "resident-synthetic-063",
+    "source_language_hint": "ta",
+    "text": "இன்னிக்கு எங்க பகுதிக்கு தண்ணி வருமா? எந்த ரோட்ல தண்ணி அதிகமா இருக்கு? எங்களுக்கு உதவி தேவையில்ல, தெரிஞ்சுக்கணும்.",
+    "text_translation_note": "Will water come to our area today? Which road has the most water? We don't need help, just want to know.",
+    "expected": {
+      "request_category": "INFORMATION",
+      "occupant_count": "unknown",
+      "location_reference": "unknown",
+      "mobility_assistance": "unknown",
+      "medical_need": "unknown",
+      "urgency_band": "ROUTINE",
+      "dispatch_eligible": false
+    }
+  },
+  {
+    "message_id": "MSG-006",
+    "sender_reference": "resident-synthetic-072",
+    "source_language_hint": "ta",
+    "text": "என் அம்மாவுக்கு 78 வயசு, wheelchair use பண்றாங்க, தண்ணி வீட்டுக்குள்ள வந்துடுச்சு, தானா நகர முடியாது, யாராவது வந்து உதவணும். நாங்க Krishnapuram, 5வது தெரு.",
+    "text_translation_note": "My mother is 78 years old, she uses a wheelchair, water has entered the house, she cannot move by herself, someone needs to come help. We are at Krishnapuram, 5th street.",
+    "expected": {
+      "request_category": "RESCUE",
+      "occupant_count": 1,
+      "location_reference": "Krishnapuram, 5th street",
+      "mobility_assistance": true,
+      "medical_need": "unknown",
+      "urgency_band": "IMMEDIATE",
+      "dispatch_eligible": false
+    }
+  },
+  {
+    "message_id": "MSG-007",
+    "sender_reference": "resident-synthetic-085",
+    "source_language_hint": "en",
+    "text": "Please help, water is rising fast near us. We're near the big banyan tree behind the old bus depot, not sure of the exact street name, there's also another banyan tree near the market that people mix up with ours.",
+    "text_translation_note": null,
+    "expected": {
+      "request_category": "RESCUE",
+      "occupant_count": "unknown",
+      "location_reference": "near a banyan tree behind the old bus depot (ambiguous - resident also mentions a second banyan tree near the market)",
+      "mobility_assistance": "unknown",
+      "medical_need": "unknown",
+      "urgency_band": "URGENT",
+      "dispatch_eligible": false
+    },
+    "expected_location_candidates_count_min": 2
+  },
+  {
+    "message_id": "MSG-008",
+    "sender_reference": "resident-synthetic-099",
+    "source_language_hint": "en",
+    "text": "Hi is this the number for the school admission helpline? Also do you sell SIM cards here? Please call me back when free.",
+    "text_translation_note": null,
+    "expected": {
+      "request_category": "OTHER",
+      "occupant_count": "unknown",
+      "location_reference": "unknown",
+      "mobility_assistance": "unknown",
+      "medical_need": "unknown",
+      "urgency_band": "ROUTINE",
+      "dispatch_eligible": false
+    },
+    "expected_manual_triage": true
+  }
+]

@@ -1,0 +1,321 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "16.2 Implement `agents/hitl.py::deterministic_classifier` + `HumanInTheLoop` wiring": [
+      {
+        "executionId": "933b49f3-e600-4afb-ba87-b23274007093",
+        "chatSessionId": "sess_06d2f97e-42c1-400e-98cf-09fc11d12398",
+        "timestamp": 1789026177877
+      },
+      {
+        "executionId": "933b49f3-e600-4afb-ba87-b23274007093",
+        "chatSessionId": "sess_06d2f97e-42c1-400e-98cf-09fc11d12398",
+        "timestamp": 1789027158963
+      }
+    ],
+    "16.3 Implement `surface/escalation_service.py` (create/resolve/timeout/resume)": [
+      {
+        "executionId": "933b49f3-e600-4afb-ba87-b23274007093",
+        "chatSessionId": "sess_06d2f97e-42c1-400e-98cf-09fc11d12398",
+        "timestamp": 1789027160032
+      },
+      {
+        "executionId": "933b49f3-e600-4afb-ba87-b23274007093",
+        "chatSessionId": "sess_06d2f97e-42c1-400e-98cf-09fc11d12398",
+        "timestamp": 1789028570770
+      }
+    ],
+    "16.4 Implement hand-authored templates + `render_template()` in `surface/escalation_service.py`": [
+      {
+        "executionId": "933b49f3-e600-4afb-ba87-b23274007093",
+        "chatSessionId": "sess_06d2f97e-42c1-400e-98cf-09fc11d12398",
+        "timestamp": 1789028569911
+      },
+      {
+        "executionId": "933b49f3-e600-4afb-ba87-b23274007093",
+        "chatSessionId": "sess_06d2f97e-42c1-400e-98cf-09fc11d12398",
+        "timestamp": 1789030015292
+      }
+    ],
+    "16. `Escalation_Service` and HITL wiring (SPIKE)": [
+      {
+        "executionId": "933b49f3-e600-4afb-ba87-b23274007093",
+        "chatSessionId": "sess_06d2f97e-42c1-400e-98cf-09fc11d12398",
+        "timestamp": 1789030015357
+      }
+    ],
+    "17.1 Implement `surface/entrypoint.py` (`BedrockAgentCoreApp`, `/invocations` + `/ping`, mode dispatch)": [
+      {
+        "executionId": "7a4d6793-452c-44b0-b5e8-a9770d635e42",
+        "chatSessionId": "sess_301eaed0-d5e8-4288-a455-77250e973a8e",
+        "timestamp": 1789031429717
+      }
+    ],
+    "19.1 Implement `memory/memory_store.py`": [
+      {
+        "executionId": "4e9040df-7251-45b7-beac-528b577e1990",
+        "chatSessionId": "sess_d8477c46-29bb-476f-8a18-6d41227ed258",
+        "timestamp": 1789043511752
+      },
+      {
+        "executionId": "4e9040df-7251-45b7-beac-528b577e1990",
+        "chatSessionId": "sess_d8477c46-29bb-476f-8a18-6d41227ed258",
+        "timestamp": 1789043896334
+      }
+    ],
+    "19. Memory across separate runs": [
+      {
+        "executionId": "4e9040df-7251-45b7-beac-528b577e1990",
+        "chatSessionId": "sess_d8477c46-29bb-476f-8a18-6d41227ed258",
+        "timestamp": 1789043896562
+      }
+    ],
+    "20. Trigger Lambda handlers": [
+      {
+        "executionId": "f2279df5-4472-4a17-8804-663f04a6cd91",
+        "chatSessionId": "sess_274dbfd5-b549-4377-aa10-9bd9f3b9cf70",
+        "timestamp": 1789045656514
+      },
+      {
+        "executionId": "f2279df5-4472-4a17-8804-663f04a6cd91",
+        "chatSessionId": "sess_274dbfd5-b549-4377-aa10-9bd9f3b9cf70",
+        "timestamp": 1789046131363
+      }
+    ],
+    "21.1 Implement `infra/checks/arch_guard.py`": [
+      {
+        "executionId": "822709e6-be77-4109-8e5b-77d0cb071b26",
+        "chatSessionId": "sess_a3a229d1-648f-4043-ba67-968f89878f38",
+        "timestamp": 1789048121059
+      }
+    ],
+    "21.2 Implement `infra/stacks/data_stack.py`": [
+      {
+        "executionId": "822709e6-be77-4109-8e5b-77d0cb071b26",
+        "chatSessionId": "sess_a3a229d1-648f-4043-ba67-968f89878f38",
+        "timestamp": 1789048128032
+      }
+    ],
+    "21.3 Implement `infra/stacks/auth_stack.py`": [
+      {
+        "executionId": "822709e6-be77-4109-8e5b-77d0cb071b26",
+        "chatSessionId": "sess_a3a229d1-648f-4043-ba67-968f89878f38",
+        "timestamp": 1789048134047
+      }
+    ],
+    "21.4 Implement `infra/stacks/agentcore_stack.py` (Runtime, Memory, Gateway, Identity)": [
+      {
+        "executionId": "822709e6-be77-4109-8e5b-77d0cb071b26",
+        "chatSessionId": "sess_a3a229d1-648f-4043-ba67-968f89878f38",
+        "timestamp": 1789048140984
+      }
+    ],
+    "21.5 Implement `infra/stacks/triggers_stack.py`": [
+      {
+        "executionId": "822709e6-be77-4109-8e5b-77d0cb071b26",
+        "chatSessionId": "sess_a3a229d1-648f-4043-ba67-968f89878f38",
+        "timestamp": 1789048147868
+      }
+    ],
+    "21.6 Implement `infra/stacks/escalation_stack.py`": [
+      {
+        "executionId": "822709e6-be77-4109-8e5b-77d0cb071b26",
+        "chatSessionId": "sess_a3a229d1-648f-4043-ba67-968f89878f38",
+        "timestamp": 1789048154466
+      }
+    ],
+    "21.7 Implement `infra/stacks/realtime_stack.py` (AppSync Events)": [
+      {
+        "executionId": "822709e6-be77-4109-8e5b-77d0cb071b26",
+        "chatSessionId": "sess_a3a229d1-648f-4043-ba67-968f89878f38",
+        "timestamp": 1789048161488
+      }
+    ],
+    "21.8 Implement `infra/stacks/observability_stack.py`": [
+      {
+        "executionId": "822709e6-be77-4109-8e5b-77d0cb071b26",
+        "chatSessionId": "sess_a3a229d1-648f-4043-ba67-968f89878f38",
+        "timestamp": 1789048168267
+      }
+    ],
+    "21.9 Implement `infra/stacks/frontend_stack.py` (Amplify Hosting)": [
+      {
+        "executionId": "822709e6-be77-4109-8e5b-77d0cb071b26",
+        "chatSessionId": "sess_a3a229d1-648f-4043-ba67-968f89878f38",
+        "timestamp": 1789048179050
+      }
+    ],
+    "21.10 Implement `infra/app.py` (wire all stacks in dependency order)": [
+      {
+        "executionId": "822709e6-be77-4109-8e5b-77d0cb071b26",
+        "chatSessionId": "sess_a3a229d1-648f-4043-ba67-968f89878f38",
+        "timestamp": 1789048186256
+      }
+    ],
+    "21. CDK infrastructure (one Python CDK app)": [
+      {
+        "executionId": "822709e6-be77-4109-8e5b-77d0cb071b26",
+        "chatSessionId": "sess_a3a229d1-648f-4043-ba67-968f89878f38",
+        "timestamp": 1789048186340
+      }
+    ],
+    "22. Observability and cost control": [
+      {
+        "executionId": "54946d43-af7c-4ae4-a42b-2f96883569e6",
+        "chatSessionId": "sess_07cd2073-f8fa-4414-b2a2-098159b89838",
+        "timestamp": 1789048259897
+      },
+      {
+        "executionId": "54946d43-af7c-4ae4-a42b-2f96883569e6",
+        "chatSessionId": "sess_07cd2073-f8fa-4414-b2a2-098159b89838",
+        "timestamp": 1789048807812
+      }
+    ],
+    "23. Frontend shared infrastructure (React + TypeScript + Vite)": [
+      {
+        "executionId": "eab7832a-eec9-4234-9a4e-f9ff8ca9fb6c",
+        "chatSessionId": "sess_18d0c86c-62c8-4265-8e4c-756b6b9e1ced",
+        "timestamp": 1789049447106
+      },
+      {
+        "executionId": "eab7832a-eec9-4234-9a4e-f9ff8ca9fb6c",
+        "chatSessionId": "sess_18d0c86c-62c8-4265-8e4c-756b6b9e1ced",
+        "timestamp": 1789049711370
+      }
+    ],
+    "24. Resident Status Page (public surface)": [
+      {
+        "executionId": "6dab4aba-fbc4-4342-a2ed-056dbef24a3c",
+        "chatSessionId": "sess_ba3b8b64-67a3-4e8d-99aa-5bb4213fa894",
+        "timestamp": 1789049928382
+      },
+      {
+        "executionId": "6dab4aba-fbc4-4342-a2ed-056dbef24a3c",
+        "chatSessionId": "sess_ba3b8b64-67a3-4e8d-99aa-5bb4213fa894",
+        "timestamp": 1789050335534
+      }
+    ],
+    "24.1 Implement `frontend/src/resident/` public status page": [
+      {
+        "executionId": "6dab4aba-fbc4-4342-a2ed-056dbef24a3c",
+        "chatSessionId": "sess_ba3b8b64-67a3-4e8d-99aa-5bb4213fa894",
+        "timestamp": 1789050335443
+      }
+    ],
+    "25.1 Implement `frontend/src/coordinator/` Decision_Inbox (one-tap)": [
+      {
+        "executionId": "a639d4f8-62ed-432a-aa9a-7a229aeb0a49",
+        "chatSessionId": "sess_fd9a146b-c131-4e81-99fd-93bfcc0057a7",
+        "timestamp": 1789050585661
+      },
+      {
+        "executionId": "a639d4f8-62ed-432a-aa9a-7a229aeb0a49",
+        "chatSessionId": "sess_fd9a146b-c131-4e81-99fd-93bfcc0057a7",
+        "timestamp": 1789050842855
+      }
+    ],
+    "25.2 Implement open-incident list + shelter availability view": [
+      {
+        "executionId": "a639d4f8-62ed-432a-aa9a-7a229aeb0a49",
+        "chatSessionId": "sess_fd9a146b-c131-4e81-99fd-93bfcc0057a7",
+        "timestamp": 1789050843875
+      },
+      {
+        "executionId": "a639d4f8-62ed-432a-aa9a-7a229aeb0a49",
+        "chatSessionId": "sess_fd9a146b-c131-4e81-99fd-93bfcc0057a7",
+        "timestamp": 1789051068707
+      }
+    ],
+    "25.3 Implement per-incident audit trail view": [
+      {
+        "executionId": "a639d4f8-62ed-432a-aa9a-7a229aeb0a49",
+        "chatSessionId": "sess_fd9a146b-c131-4e81-99fd-93bfcc0057a7",
+        "timestamp": 1789051067556
+      },
+      {
+        "executionId": "a639d4f8-62ed-432a-aa9a-7a229aeb0a49",
+        "chatSessionId": "sess_fd9a146b-c131-4e81-99fd-93bfcc0057a7",
+        "timestamp": 1789051334063
+      }
+    ],
+    "25.4 Implement recent-runs cost/latency view": [
+      {
+        "executionId": "a639d4f8-62ed-432a-aa9a-7a229aeb0a49",
+        "chatSessionId": "sess_fd9a146b-c131-4e81-99fd-93bfcc0057a7",
+        "timestamp": 1789051333417
+      },
+      {
+        "executionId": "a639d4f8-62ed-432a-aa9a-7a229aeb0a49",
+        "chatSessionId": "sess_fd9a146b-c131-4e81-99fd-93bfcc0057a7",
+        "timestamp": 1789051657163
+      }
+    ],
+    "25.5 Implement the `Coordinator_Orchestrator` conversational panel (secondary surface)": [
+      {
+        "executionId": "a639d4f8-62ed-432a-aa9a-7a229aeb0a49",
+        "chatSessionId": "sess_fd9a146b-c131-4e81-99fd-93bfcc0057a7",
+        "timestamp": 1789051656293
+      },
+      {
+        "executionId": "a639d4f8-62ed-432a-aa9a-7a229aeb0a49",
+        "chatSessionId": "sess_fd9a146b-c131-4e81-99fd-93bfcc0057a7",
+        "timestamp": 1789051897225
+      }
+    ],
+    "25. Coordinator Console (primary human surface)": [
+      {
+        "executionId": "a639d4f8-62ed-432a-aa9a-7a229aeb0a49",
+        "chatSessionId": "sess_fd9a146b-c131-4e81-99fd-93bfcc0057a7",
+        "timestamp": 1789051897340
+      }
+    ],
+    "26. Responder Interface": [
+      {
+        "executionId": "32840137-ce24-4aca-9e56-fdf9debd9fef",
+        "chatSessionId": "sess_405e7156-cad0-46de-9231-32d7d832a97a",
+        "timestamp": 1789052026855
+      },
+      {
+        "executionId": "32840137-ce24-4aca-9e56-fdf9debd9fef",
+        "chatSessionId": "sess_405e7156-cad0-46de-9231-32d7d832a97a",
+        "timestamp": 1789052389050
+      }
+    ],
+    "28. Strands Evals scenario suite": [
+      {
+        "executionId": "9713b043-9b44-4214-a90d-6b06d79c387d",
+        "chatSessionId": "sess_b92c88f6-589b-49ce-a681-0a2369572028",
+        "timestamp": 1789060360512
+      },
+      {
+        "executionId": "9713b043-9b44-4214-a90d-6b06d79c387d",
+        "chatSessionId": "sess_b92c88f6-589b-49ce-a681-0a2369572028",
+        "timestamp": 1789061360238
+      }
+    ],
+    "18. Checkpoint — core autonomous loop (local, `SYNTHETIC_SENSORS=1`)": [
+      {
+        "executionId": "ea8b749f-6865-4f52-80e6-55e58d73f813",
+        "chatSessionId": "sess_e04cc830-f33c-46ad-ab7f-e3cfa84bab15",
+        "timestamp": 1789062144809
+      },
+      {
+        "executionId": "ea8b749f-6865-4f52-80e6-55e58d73f813",
+        "chatSessionId": "sess_e04cc830-f33c-46ad-ab7f-e3cfa84bab15",
+        "timestamp": 1789063002945
+      }
+    ],
+    "14. Checkpoint — agents": [
+      {
+        "executionId": "70b643d3-cd5d-412e-bbe6-5f9448b913e8",
+        "chatSessionId": "sess_ba08a024-bffc-4ae8-8328-014b556ee2ee",
+        "timestamp": 1789063324560
+      },
+      {
+        "executionId": "70b643d3-cd5d-412e-bbe6-5f9448b913e8",
+        "chatSessionId": "sess_ba08a024-bffc-4ae8-8328-014b556ee2ee",
+        "timestamp": 1789063601984
+      }
+    ]
+  }
+}

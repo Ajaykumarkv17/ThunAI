@@ -1,0 +1,21 @@
+{
+  "scenario_id": "routine-dispatch-executes-no-escalation",
+  "kind": "escalation",
+  "coverage": "Req 10.7 never-ask routine dispatch above the floor executes without a human",
+  "input_fixture_id": "synthetic:decision/routine_dispatch",
+  "input": {
+    "category": "routine_dispatch_ambulatory",
+    "confidence": 0.9,
+    "action": "execute",
+    "is_irreversible_action": false,
+    "severity_band": "WATCH",
+    "human_response": "approve"
+  },
+  "expected_observable_outcome": {
+    "escalated": false,
+    "status": "NOT_ESCALATED",
+    "resolved_by_default": false,
+    "determining_entry": "NEVER_ASK_CATEGORIES"
+  },
+  "pass_condition": "A routine ambulatory dispatch above the confidence floor, not irreversible and not explicitly asking for a human, executes autonomously with no Escalation_Record created."
+}

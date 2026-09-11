@@ -1,0 +1,8337 @@
+{
+  "responders": [
+    {
+      "responder_id": "resp-01",
+      "name": "Karthik R.",
+      "home_coords": [
+        11.26032,
+        79.83409
+      ],
+      "equipment": [
+        "boat"
+      ],
+      "availability_status": "AVAILABLE",
+      "active_assignment_id": null,
+      "active_assignment_count": 0
+    },
+    {
+      "responder_id": "resp-02",
+      "name": "Meena K.",
+      "home_coords": [
+        11.29393,
+        79.86532
+      ],
+      "equipment": [
+        "4x4"
+      ],
+      "availability_status": "AVAILABLE",
+      "active_assignment_id": null,
+      "active_assignment_count": 0
+    },
+    {
+      "responder_id": "resp-03",
+      "name": "Suresh S.",
+      "home_coords": [
+        11.20699,
+        79.89575
+      ],
+      "equipment": [
+        "boat",
+        "4x4"
+      ],
+      "availability_status": "AVAILABLE",
+      "active_assignment_id": null,
+      "active_assignment_count": 0
+    },
+    {
+      "responder_id": "resp-04",
+      "name": "Lakshmi M.",
+      "home_coords": [
+        11.21445,
+        79.87435
+      ],
+      "equipment": [
+        "none"
+      ],
+      "availability_status": "AVAILABLE",
+      "active_assignment_id": null,
+      "active_assignment_count": 0
+    },
+    {
+      "responder_id": "resp-05",
+      "name": "Arun N.",
+      "home_coords": [
+        11.20341,
+        79.89644
+      ],
+      "equipment": [
+        "boat"
+      ],
+      "availability_status": "AVAILABLE",
+      "active_assignment_id": null,
+      "active_assignment_count": 0
+    },
+    {
+      "responder_id": "resp-06",
+      "name": "Priya T.",
+      "home_coords": [
+        11.25973,
+        79.81638
+      ],
+      "equipment": [
+        "4x4"
+      ],
+      "availability_status": "AVAILABLE",
+      "active_assignment_id": null,
+      "active_assignment_count": 0
+    },
+    {
+      "responder_id": "resp-07",
+      "name": "Manoj V.",
+      "home_coords": [
+        11.24392,
+        79.85561
+      ],
+      "equipment": [
+        "boat",
+        "4x4"
+      ],
+      "availability_status": "AVAILABLE",
+      "active_assignment_id": null,
+      "active_assignment_count": 0
+    },
+    {
+      "responder_id": "resp-08",
+      "name": "Divya P.",
+      "home_coords": [
+        11.29917,
+        79.81654
+      ],
+      "equipment": [
+        "none"
+      ],
+      "availability_status": "AVAILABLE",
+      "active_assignment_id": null,
+      "active_assignment_count": 0
+    },
+    {
+      "responder_id": "resp-09",
+      "name": "Ravi R.",
+      "home_coords": [
+        11.25667,
+        79.88757
+      ],
+      "equipment": [
+        "boat"
+      ],
+      "availability_status": "AVAILABLE",
+      "active_assignment_id": null,
+      "active_assignment_count": 0
+    },
+    {
+      "responder_id": "resp-10",
+      "name": "Kavya K.",
+      "home_coords": [
+        11.2914,
+        79.87095
+      ],
+      "equipment": [
+        "4x4"
+      ],
+      "availability_status": "AVAILABLE",
+      "active_assignment_id": null,
+      "active_assignment_count": 0
+    },
+    {
+      "responder_id": "resp-11",
+      "name": "Senthil S.",
+      "home_coords": [
+        11.27495,
+        79.80192
+      ],
+      "equipment": [
+        "boat",
+        "4x4"
+      ],
+      "availability_status": "AVAILABLE",
+      "active_assignment_id": null,
+      "active_assignment_count": 0
+    },
+    {
+      "responder_id": "resp-12",
+      "name": "Anitha M.",
+      "home_coords": [
+        11.27502,
+        79.82648
+      ],
+      "equipment": [
+        "none"
+      ],
+      "availability_status": "AVAILABLE",
+      "active_assignment_id": null,
+      "active_assignment_count": 0
+    },
+    {
+      "responder_id": "resp-13",
+      "name": "Vijay N.",
+      "home_coords": [
+        11.23206,
+        79.84215
+      ],
+      "equipment": [
+        "boat"
+      ],
+      "availability_status": "AVAILABLE",
+      "active_assignment_id": null,
+      "active_assignment_count": 0
+    },
+    {
+      "responder_id": "resp-14",
+      "name": "Deepa T.",
+      "home_coords": [
+        11.29401,
+        79.84405
+      ],
+      "equipment": [
+        "4x4"
+      ],
+      "availability_status": "AVAILABLE",
+      "active_assignment_id": null,
+      "active_assignment_count": 0
+    }
+  ],
+  "shelters": [
+    {
+      "shelter_id": "shelter-1",
+      "name": "Ward-7 Community Hall",
+      "coords": [
+        11.28705,
+        79.83555
+      ],
+      "total_capacity": 50,
+      "available_capacity": 50
+    },
+    {
+      "shelter_id": "shelter-2",
+      "name": "Riverside Colony School",
+      "coords": [
+        11.26047,
+        79.8509
+      ],
+      "total_capacity": 40,
+      "available_capacity": 40
+    },
+    {
+      "shelter_id": "shelter-3",
+      "name": "Kanal Street Marriage Hall",
+      "coords": [
+        11.23149,
+        79.87667
+      ],
+      "total_capacity": 30,
+      "available_capacity": 30
+    }
+  ],
+  "resident_points": [
+    {
+      "point_id": "rp-0001",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.21882,
+        79.81922
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0002",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.20673,
+        79.89465
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0003",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.27967,
+        79.89272
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0004",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.2482,
+        79.80543
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0005",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.24494,
+        79.85383
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0006",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.21911,
+        79.8577
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0007",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.24938,
+        79.80632
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0008",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.27111,
+        79.83096
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0009",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.24725,
+        79.84516
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0010",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.2871,
+        79.87893
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0011",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.24193,
+        79.89085
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0012",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.2227,
+        79.82321
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0013",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.22961,
+        79.87905
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0014",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.2617,
+        79.81524
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0015",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.2521,
+        79.86371
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0016",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.24363,
+        79.83011
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0017",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.22664,
+        79.89016
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0018",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.2197,
+        79.80628
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0019",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.24368,
+        79.84117
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0020",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.236,
+        79.88238
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0021",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.28717,
+        79.80217
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0022",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.25482,
+        79.85691
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0023",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.2751,
+        79.83001
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0024",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.29885,
+        79.88602
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0025",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.22093,
+        79.82486
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0026",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.29661,
+        79.8184
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0027",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.28598,
+        79.80258
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0028",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.26883,
+        79.88314
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0029",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.25009,
+        79.80591
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0030",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.2318,
+        79.82659
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0031",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.22107,
+        79.80447
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0032",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.26871,
+        79.81146
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0033",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.2728,
+        79.82421
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0034",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.2324,
+        79.87403
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0035",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.26027,
+        79.84812
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0036",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.25973,
+        79.81745
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0037",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.24614,
+        79.81208
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0038",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.29557,
+        79.88084
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0039",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.28774,
+        79.86341
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0040",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.21434,
+        79.8784
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0041",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.23804,
+        79.87556
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0042",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.2997,
+        79.88057
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0043",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.22965,
+        79.87625
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0044",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.25494,
+        79.80121
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0045",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.29962,
+        79.86608
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0046",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.26595,
+        79.84332
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0047",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.27283,
+        79.89816
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0048",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.24681,
+        79.88226
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0049",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.2112,
+        79.85
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0050",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.2829,
+        79.87173
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0051",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.26526,
+        79.89333
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0052",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.2704,
+        79.87709
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0053",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.23791,
+        79.87235
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0054",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.24334,
+        79.8784
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0055",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.22099,
+        79.87265
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0056",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.21758,
+        79.85778
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0057",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.248,
+        79.80271
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0058",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.21425,
+        79.83374
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0059",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.21407,
+        79.86646
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0060",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.21395,
+        79.88459
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0061",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.26061,
+        79.89767
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0062",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.25795,
+        79.89539
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0063",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.22584,
+        79.85122
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0064",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.24758,
+        79.80784
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0065",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.27494,
+        79.83322
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0066",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.2212,
+        79.86469
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0067",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.22695,
+        79.88088
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0068",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.25382,
+        79.84829
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0069",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.2201,
+        79.82868
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0070",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.29251,
+        79.8463
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0071",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.28909,
+        79.8975
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0072",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.26865,
+        79.83416
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0073",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.26497,
+        79.86099
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0074",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.26214,
+        79.87308
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0075",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.28771,
+        79.84431
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0076",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.24767,
+        79.86935
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0077",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.28179,
+        79.89149
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0078",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.22892,
+        79.87049
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0079",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.29869,
+        79.80709
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0080",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.29472,
+        79.80671
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0081",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.26471,
+        79.85644
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0082",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.20256,
+        79.87095
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0083",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.2957,
+        79.85169
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0084",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.26798,
+        79.89732
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0085",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.28109,
+        79.84027
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0086",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.27185,
+        79.80978
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0087",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.25566,
+        79.87738
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0088",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.28273,
+        79.88588
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0089",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.27667,
+        79.87887
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0090",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.25691,
+        79.89219
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0091",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.29208,
+        79.83516
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0092",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.29907,
+        79.83953
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0093",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.28961,
+        79.82417
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0094",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.20074,
+        79.80804
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0095",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.22057,
+        79.87192
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0096",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.28395,
+        79.88909
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0097",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.27756,
+        79.83983
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0098",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.25476,
+        79.82752
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0099",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.20788,
+        79.83003
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0100",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.24424,
+        79.87869
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0101",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.24556,
+        79.85929
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0102",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.27083,
+        79.83263
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0103",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.27955,
+        79.84722
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0104",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.24877,
+        79.84626
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0105",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.22634,
+        79.80262
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0106",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.20798,
+        79.89007
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0107",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.25321,
+        79.80247
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0108",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.23725,
+        79.85769
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0109",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.25527,
+        79.86746
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0110",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.28796,
+        79.87195
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0111",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.22355,
+        79.86924
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0112",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.22197,
+        79.81558
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0113",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.29898,
+        79.83231
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0114",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.21066,
+        79.8662
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0115",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.24465,
+        79.8912
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0116",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.26092,
+        79.81183
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0117",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.22826,
+        79.87077
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0118",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.28309,
+        79.84865
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0119",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.23717,
+        79.83443
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0120",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.28721,
+        79.84651
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0121",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.29275,
+        79.89098
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0122",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.26727,
+        79.88505
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0123",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.29499,
+        79.86912
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0124",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.2411,
+        79.89239
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0125",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.29673,
+        79.89123
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0126",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.20885,
+        79.84679
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0127",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.2571,
+        79.88722
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0128",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.23563,
+        79.80266
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0129",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.28893,
+        79.84935
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0130",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.26934,
+        79.84924
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0131",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.22094,
+        79.88675
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0132",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.24769,
+        79.87241
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0133",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.21208,
+        79.87396
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0134",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.29662,
+        79.8671
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0135",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.27897,
+        79.89123
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0136",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.21829,
+        79.86427
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0137",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.2063,
+        79.8037
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0138",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.28047,
+        79.84553
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0139",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.23201,
+        79.88623
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0140",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.28469,
+        79.82533
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0141",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.21697,
+        79.86544
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0142",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.29833,
+        79.84173
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0143",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.26359,
+        79.84115
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0144",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.21752,
+        79.89696
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0145",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.22527,
+        79.82529
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0146",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.24368,
+        79.83515
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0147",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.22258,
+        79.86594
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0148",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.2972,
+        79.85102
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0149",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.22642,
+        79.8878
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0150",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.24144,
+        79.81688
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0151",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.20127,
+        79.87224
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0152",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.20013,
+        79.8764
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0153",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.24545,
+        79.81682
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0154",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.27215,
+        79.85455
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0155",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.21842,
+        79.81008
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0156",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.21882,
+        79.88438
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0157",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.25821,
+        79.87252
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0158",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.28314,
+        79.80362
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0159",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.2246,
+        79.84125
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0160",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.20075,
+        79.87617
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0161",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.29375,
+        79.84655
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0162",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.20025,
+        79.80653
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0163",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.2593,
+        79.80778
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0164",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.28055,
+        79.85258
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0165",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.22269,
+        79.89546
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0166",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.21351,
+        79.86157
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0167",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.20509,
+        79.86891
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0168",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.29849,
+        79.86017
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0169",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.20828,
+        79.89306
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0170",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.25922,
+        79.88858
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0171",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.27939,
+        79.83503
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0172",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.25964,
+        79.81071
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0173",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.2181,
+        79.84886
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0174",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.23054,
+        79.8677
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0175",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.22728,
+        79.83191
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0176",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.25972,
+        79.80676
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0177",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.25039,
+        79.8619
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0178",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.25776,
+        79.88754
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0179",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.22381,
+        79.81515
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0180",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.20818,
+        79.88004
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0181",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.2134,
+        79.81054
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0182",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.27123,
+        79.81062
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0183",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.26092,
+        79.828
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0184",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.28245,
+        79.89041
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0185",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.28261,
+        79.87128
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0186",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.25758,
+        79.85808
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0187",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.2115,
+        79.87187
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0188",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.25257,
+        79.84077
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0189",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.26221,
+        79.81231
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0190",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.21506,
+        79.86721
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0191",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.23897,
+        79.80466
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0192",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.21073,
+        79.80219
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0193",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.2782,
+        79.83646
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0194",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.2979,
+        79.82024
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0195",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.26486,
+        79.83045
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0196",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.25744,
+        79.80179
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0197",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.28343,
+        79.811
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0198",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.2209,
+        79.81792
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0199",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.23861,
+        79.8747
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0200",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.29941,
+        79.85395
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0201",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.21027,
+        79.89053
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0202",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.28093,
+        79.80969
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0203",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.29376,
+        79.81378
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0204",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.25476,
+        79.89603
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0205",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.23592,
+        79.84654
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0206",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.24481,
+        79.81502
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0207",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.26852,
+        79.82714
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0208",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.28936,
+        79.88617
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0209",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.22288,
+        79.81726
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0210",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.27623,
+        79.87053
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0211",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.25633,
+        79.85461
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0212",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.29144,
+        79.81363
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0213",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.29707,
+        79.82469
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0214",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.28408,
+        79.8359
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0215",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.29485,
+        79.82854
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0216",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.22702,
+        79.80367
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0217",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.21767,
+        79.88335
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0218",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.2794,
+        79.844
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0219",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.29079,
+        79.88484
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0220",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.20389,
+        79.85982
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0221",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.29034,
+        79.87956
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0222",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.20911,
+        79.88402
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0223",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.24766,
+        79.89381
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0224",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.22262,
+        79.87527
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0225",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.24538,
+        79.8906
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0226",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.28265,
+        79.84325
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0227",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.2102,
+        79.80111
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0228",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.21068,
+        79.84081
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0229",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.22129,
+        79.82277
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0230",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.25075,
+        79.88863
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0231",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.22618,
+        79.8058
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0232",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.26125,
+        79.86006
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0233",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.28794,
+        79.82154
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0234",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.22254,
+        79.86228
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0235",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.29086,
+        79.81836
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0236",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.20836,
+        79.86661
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0237",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.22964,
+        79.8386
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0238",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.25115,
+        79.88963
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0239",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.28666,
+        79.86393
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0240",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.21451,
+        79.85341
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0241",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.23402,
+        79.8848
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0242",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.2412,
+        79.88066
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0243",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.27667,
+        79.82492
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0244",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.20747,
+        79.83235
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0245",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.25226,
+        79.86921
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0246",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.29586,
+        79.89071
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0247",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.29205,
+        79.88157
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0248",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.24102,
+        79.81231
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0249",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.21372,
+        79.87938
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0250",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.25271,
+        79.86506
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0251",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.28066,
+        79.84638
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0252",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.20162,
+        79.82438
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0253",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.2196,
+        79.81524
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0254",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.2686,
+        79.81444
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0255",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.26154,
+        79.87253
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0256",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.22047,
+        79.85194
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0257",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.27364,
+        79.86568
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0258",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.29192,
+        79.82959
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0259",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.23662,
+        79.87381
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0260",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.26642,
+        79.87182
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0261",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.26039,
+        79.81764
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0262",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.25854,
+        79.88758
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0263",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.22799,
+        79.878
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0264",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.22696,
+        79.84944
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0265",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.21662,
+        79.85612
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0266",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.21052,
+        79.82123
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0267",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.24636,
+        79.8493
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0268",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.21991,
+        79.85361
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0269",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.24935,
+        79.87097
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0270",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.22725,
+        79.83304
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0271",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.28695,
+        79.81948
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0272",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.26795,
+        79.81181
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0273",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.24364,
+        79.88202
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0274",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.20544,
+        79.85581
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0275",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.27773,
+        79.81587
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0276",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.24855,
+        79.82244
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0277",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.20336,
+        79.87918
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0278",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.26711,
+        79.85891
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0279",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.27604,
+        79.89118
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0280",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.20259,
+        79.81969
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0281",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.23586,
+        79.88888
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0282",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.21991,
+        79.85066
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0283",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.23789,
+        79.85522
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0284",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.21387,
+        79.89841
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0285",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.24941,
+        79.84068
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0286",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.2667,
+        79.86199
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0287",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.26541,
+        79.83885
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0288",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.29007,
+        79.81754
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0289",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.24509,
+        79.88961
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0290",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.23391,
+        79.84146
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0291",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.2645,
+        79.8986
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0292",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.22268,
+        79.8281
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0293",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.29853,
+        79.81081
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0294",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.24032,
+        79.85943
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0295",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.23456,
+        79.87167
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0296",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.26209,
+        79.83787
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0297",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.22709,
+        79.81479
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0298",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.26995,
+        79.86499
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0299",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.27685,
+        79.86444
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0300",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.28205,
+        79.86404
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0301",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.20609,
+        79.88384
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0302",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.25871,
+        79.80726
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0303",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.22689,
+        79.80684
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0304",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.27606,
+        79.83459
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0305",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.29039,
+        79.83163
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0306",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.24685,
+        79.84918
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0307",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.26477,
+        79.88787
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0308",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.24934,
+        79.84096
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0309",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.25543,
+        79.88523
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0310",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.2263,
+        79.8641
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0311",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.25052,
+        79.89669
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0312",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.25218,
+        79.84957
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0313",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.24268,
+        79.85508
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0314",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.28856,
+        79.89924
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0315",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.24233,
+        79.82594
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0316",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.22078,
+        79.86473
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0317",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.29137,
+        79.89289
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0318",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.27928,
+        79.80229
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0319",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.23705,
+        79.82173
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0320",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.28009,
+        79.82953
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0321",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.21643,
+        79.89985
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0322",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.26871,
+        79.86955
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0323",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.26338,
+        79.83324
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0324",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.21257,
+        79.80669
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0325",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.2516,
+        79.83406
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0326",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.26421,
+        79.86463
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0327",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.29008,
+        79.84672
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0328",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.27404,
+        79.84815
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0329",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.25356,
+        79.89274
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0330",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.29114,
+        79.86643
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0331",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.24796,
+        79.82751
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0332",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.21527,
+        79.88216
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0333",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.28933,
+        79.86202
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0334",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.2568,
+        79.8157
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0335",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.26435,
+        79.8935
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0336",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.23973,
+        79.84637
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0337",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.2659,
+        79.80787
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0338",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.24476,
+        79.83792
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0339",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.26213,
+        79.83743
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0340",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.25411,
+        79.81027
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0341",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.27936,
+        79.80219
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0342",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.21629,
+        79.87106
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0343",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.2722,
+        79.87211
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0344",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.25243,
+        79.8035
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0345",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.29755,
+        79.87707
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0346",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.2007,
+        79.8457
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0347",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.26237,
+        79.83324
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0348",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.24654,
+        79.82085
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0349",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.27622,
+        79.88682
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0350",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.25774,
+        79.87293
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0351",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.25618,
+        79.89677
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0352",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.21116,
+        79.89858
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0353",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.21477,
+        79.87019
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0354",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.26956,
+        79.81026
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0355",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.25257,
+        79.85678
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0356",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.20131,
+        79.88247
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0357",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.21442,
+        79.83107
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0358",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.20118,
+        79.81737
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0359",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.27061,
+        79.89438
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0360",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.23821,
+        79.84119
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0361",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.24219,
+        79.83896
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0362",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.23252,
+        79.84733
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0363",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.20003,
+        79.8261
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0364",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.25361,
+        79.80173
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0365",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.2383,
+        79.8398
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0366",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.2471,
+        79.83648
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0367",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.25146,
+        79.82665
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0368",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.21214,
+        79.89294
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0369",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.22592,
+        79.85763
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0370",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.27788,
+        79.87757
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0371",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.27894,
+        79.89283
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0372",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.27515,
+        79.84495
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0373",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.21484,
+        79.80191
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0374",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.26317,
+        79.89854
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0375",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.29863,
+        79.80032
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0376",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.21693,
+        79.85001
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0377",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.27458,
+        79.87744
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0378",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.24862,
+        79.81062
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0379",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.24665,
+        79.85392
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0380",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.29338,
+        79.80091
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0381",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.27543,
+        79.85766
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0382",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.24997,
+        79.8701
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0383",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.27237,
+        79.84357
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0384",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.28033,
+        79.83529
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0385",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.25764,
+        79.89597
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0386",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.2157,
+        79.87871
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0387",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.26281,
+        79.84228
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0388",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.29195,
+        79.86438
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0389",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.20418,
+        79.88893
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0390",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.20151,
+        79.80385
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0391",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.21497,
+        79.80207
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0392",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.25974,
+        79.87109
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0393",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.26373,
+        79.84242
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0394",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.20793,
+        79.87384
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0395",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.24627,
+        79.87055
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0396",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.28431,
+        79.82803
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0397",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.28619,
+        79.8556
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0398",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.26973,
+        79.88828
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0399",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.23647,
+        79.80539
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0400",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.26575,
+        79.88989
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0401",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.26237,
+        79.8171
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0402",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.26603,
+        79.82969
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0403",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.25375,
+        79.88629
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0404",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.20536,
+        79.85761
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0405",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.27932,
+        79.85095
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0406",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.26491,
+        79.80652
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0407",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.22421,
+        79.83543
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0408",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.2498,
+        79.85489
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0409",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.28791,
+        79.87286
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0410",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.29391,
+        79.8448
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0411",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.23516,
+        79.84412
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0412",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.24108,
+        79.86096
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0413",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.21229,
+        79.85744
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0414",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.2928,
+        79.89089
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0415",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.20125,
+        79.87471
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0416",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.27552,
+        79.8761
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0417",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.22812,
+        79.82398
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0418",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.20729,
+        79.85263
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0419",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.21361,
+        79.85403
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0420",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.20525,
+        79.80994
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0421",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.24988,
+        79.82871
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0422",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.28973,
+        79.81994
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0423",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.20623,
+        79.81523
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0424",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.2385,
+        79.82957
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0425",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.21487,
+        79.84184
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0426",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.28787,
+        79.85212
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0427",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.29786,
+        79.86324
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0428",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.28631,
+        79.81622
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0429",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.2327,
+        79.83777
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0430",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.27133,
+        79.85955
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0431",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.29192,
+        79.86351
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0432",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.24116,
+        79.87853
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0433",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.25598,
+        79.8301
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0434",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.23519,
+        79.84753
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0435",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.28524,
+        79.85547
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0436",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.24952,
+        79.80493
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0437",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.28544,
+        79.8624
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0438",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.24823,
+        79.88253
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0439",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.25886,
+        79.85439
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0440",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.22244,
+        79.86859
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0441",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.22002,
+        79.80122
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0442",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.21869,
+        79.81453
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0443",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.21371,
+        79.81329
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0444",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.20961,
+        79.85216
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0445",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.28242,
+        79.83082
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0446",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.21227,
+        79.8709
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0447",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.27613,
+        79.8465
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0448",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.28234,
+        79.83755
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0449",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.20211,
+        79.84516
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0450",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.20402,
+        79.89702
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0451",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.28596,
+        79.87595
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0452",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.29008,
+        79.89504
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0453",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.23815,
+        79.89747
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0454",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.20617,
+        79.84919
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0455",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.2517,
+        79.80856
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0456",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.23074,
+        79.88124
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0457",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.22414,
+        79.87601
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0458",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.26027,
+        79.89864
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0459",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.26822,
+        79.83269
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0460",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.20894,
+        79.87311
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0461",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.2396,
+        79.85681
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0462",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.28082,
+        79.81535
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0463",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.21322,
+        79.89217
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0464",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.25817,
+        79.82627
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0465",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.22227,
+        79.82878
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0466",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.27173,
+        79.87546
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0467",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.26959,
+        79.84646
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0468",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.29539,
+        79.87386
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0469",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.20404,
+        79.87514
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0470",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.27249,
+        79.86391
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0471",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.20388,
+        79.86468
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0472",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.229,
+        79.84714
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0473",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.26233,
+        79.89771
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0474",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.22372,
+        79.85567
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0475",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.2017,
+        79.80492
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0476",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.23765,
+        79.80981
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0477",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.24882,
+        79.86923
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0478",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.2086,
+        79.83291
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0479",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.28941,
+        79.887
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0480",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.20979,
+        79.8217
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0481",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.24671,
+        79.85566
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0482",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.27967,
+        79.88508
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0483",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.21411,
+        79.87561
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0484",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.29358,
+        79.84557
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0485",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.21156,
+        79.81584
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0486",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.29022,
+        79.84446
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0487",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.28894,
+        79.89455
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0488",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.27936,
+        79.8289
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0489",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.23832,
+        79.80536
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0490",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.22424,
+        79.807
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0491",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.28757,
+        79.88471
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0492",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.22467,
+        79.85105
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0493",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.25062,
+        79.80121
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0494",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.2611,
+        79.81969
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0495",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.28544,
+        79.81009
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0496",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.27447,
+        79.85664
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0497",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.28791,
+        79.85452
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0498",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.21336,
+        79.87272
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0499",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.25965,
+        79.84507
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0500",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.25181,
+        79.86124
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0501",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.26355,
+        79.84742
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0502",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.29695,
+        79.87774
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0503",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.28767,
+        79.88189
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0504",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.2873,
+        79.89015
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0505",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.21083,
+        79.88191
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0506",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.2129,
+        79.85773
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0507",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.22221,
+        79.80757
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0508",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.26727,
+        79.87177
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0509",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.23535,
+        79.86001
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0510",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.24346,
+        79.87273
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0511",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.24033,
+        79.84024
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0512",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.24048,
+        79.84072
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0513",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.25337,
+        79.84801
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0514",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.25666,
+        79.8939
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0515",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.25625,
+        79.8918
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0516",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.28774,
+        79.87621
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0517",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.20892,
+        79.85735
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0518",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.2433,
+        79.80674
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0519",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.29732,
+        79.85182
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0520",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.28804,
+        79.89708
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0521",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.29383,
+        79.8512
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0522",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.22217,
+        79.80791
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0523",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.24302,
+        79.80495
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0524",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.20849,
+        79.87017
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0525",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.25253,
+        79.81636
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0526",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.24825,
+        79.8953
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0527",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.29493,
+        79.82496
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0528",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.26667,
+        79.8374
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0529",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.27787,
+        79.81719
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0530",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.2194,
+        79.89903
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0531",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.2896,
+        79.89593
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0532",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.27838,
+        79.82828
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0533",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.21422,
+        79.85053
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0534",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.27153,
+        79.8263
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0535",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.29994,
+        79.87758
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0536",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.20068,
+        79.87352
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0537",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.29734,
+        79.882
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0538",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.27407,
+        79.81609
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0539",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.22924,
+        79.81588
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0540",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.25709,
+        79.86116
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0541",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.20516,
+        79.80949
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0542",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.27475,
+        79.86536
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0543",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.24782,
+        79.89205
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0544",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.24862,
+        79.87229
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0545",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.29476,
+        79.85177
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0546",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.25819,
+        79.89444
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0547",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.2266,
+        79.82337
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0548",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.20257,
+        79.83542
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0549",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.23616,
+        79.81538
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0550",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.28367,
+        79.83079
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0551",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.29731,
+        79.81243
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0552",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.21479,
+        79.87885
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0553",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.25241,
+        79.85367
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0554",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.26462,
+        79.86028
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0555",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.20635,
+        79.81999
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0556",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.23809,
+        79.83184
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0557",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.2994,
+        79.85979
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0558",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.2924,
+        79.86093
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0559",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.29919,
+        79.85383
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0560",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.27852,
+        79.81563
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0561",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.20541,
+        79.8656
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0562",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.25059,
+        79.87582
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0563",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.22917,
+        79.82839
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0564",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.20675,
+        79.86523
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0565",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.27299,
+        79.86724
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0566",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.2129,
+        79.83125
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0567",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.24807,
+        79.83885
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0568",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.22664,
+        79.84094
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0569",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.27126,
+        79.84569
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0570",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.21822,
+        79.82229
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0571",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.26027,
+        79.88727
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0572",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.20597,
+        79.84335
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0573",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.27727,
+        79.82657
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0574",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.27031,
+        79.86521
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0575",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.26449,
+        79.89919
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0576",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.23089,
+        79.88958
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0577",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.20767,
+        79.82737
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0578",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.29706,
+        79.83026
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0579",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.22106,
+        79.81163
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0580",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.28523,
+        79.82004
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0581",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.21952,
+        79.86388
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0582",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.24435,
+        79.88558
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0583",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.29508,
+        79.82055
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0584",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.21371,
+        79.89276
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0585",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.20636,
+        79.81443
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0586",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.27811,
+        79.80228
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0587",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.22995,
+        79.88844
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0588",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.28651,
+        79.82074
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0589",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.29018,
+        79.87415
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0590",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.22537,
+        79.8776
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0591",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.24447,
+        79.8392
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0592",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.26702,
+        79.88885
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0593",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.28874,
+        79.89412
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0594",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.27507,
+        79.85744
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0595",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.29199,
+        79.81871
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0596",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.28924,
+        79.82307
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0597",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.23833,
+        79.86051
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0598",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.21587,
+        79.8658
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0599",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.26674,
+        79.89607
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0600",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.24748,
+        79.81205
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0601",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.27624,
+        79.81276
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0602",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.26404,
+        79.85711
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0603",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.20836,
+        79.82324
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0604",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.23145,
+        79.88824
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0605",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.25545,
+        79.84369
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0606",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.2696,
+        79.87607
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0607",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.25747,
+        79.87328
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0608",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.22317,
+        79.86525
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0609",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.26382,
+        79.84403
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0610",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.27837,
+        79.8151
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0611",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.28702,
+        79.89821
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0612",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.20055,
+        79.88269
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0613",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.25609,
+        79.89064
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0614",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.27797,
+        79.85688
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0615",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.22029,
+        79.80301
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0616",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.20383,
+        79.88872
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0617",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.29245,
+        79.86011
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0618",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.29729,
+        79.89377
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0619",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.28563,
+        79.84629
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0620",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.20564,
+        79.83838
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0621",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.23979,
+        79.86817
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0622",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.23094,
+        79.82041
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0623",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.25193,
+        79.8563
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0624",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.24312,
+        79.81872
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0625",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.27827,
+        79.80957
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0626",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.23451,
+        79.8636
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0627",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.29372,
+        79.84278
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0628",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.24402,
+        79.86546
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0629",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.26131,
+        79.87423
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0630",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.2352,
+        79.88626
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0631",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.21661,
+        79.87959
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0632",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.26048,
+        79.81862
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0633",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.29149,
+        79.88146
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0634",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.26075,
+        79.87361
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0635",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.28346,
+        79.83528
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0636",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.23586,
+        79.89845
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0637",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.24257,
+        79.87131
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0638",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.28569,
+        79.86277
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0639",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.2706,
+        79.8126
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0640",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.22427,
+        79.87245
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0641",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.28021,
+        79.80456
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0642",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.26498,
+        79.89476
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0643",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.29979,
+        79.84613
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0644",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.20555,
+        79.80765
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0645",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.20272,
+        79.87094
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0646",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.25444,
+        79.86222
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0647",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.24098,
+        79.879
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0648",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.2001,
+        79.82274
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0649",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.22064,
+        79.88938
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0650",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.2727,
+        79.87473
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0651",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.23654,
+        79.86358
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0652",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.2798,
+        79.85389
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0653",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.29536,
+        79.89525
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0654",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.21641,
+        79.87539
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0655",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.24112,
+        79.86117
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0656",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.29378,
+        79.87028
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0657",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.23404,
+        79.84819
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0658",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.25672,
+        79.83994
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0659",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.2294,
+        79.87839
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0660",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.22422,
+        79.88375
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0661",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.245,
+        79.86551
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0662",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.2323,
+        79.84627
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0663",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.24886,
+        79.84055
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0664",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.27862,
+        79.86064
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0665",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.26797,
+        79.82693
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0666",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.21238,
+        79.80899
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0667",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.2413,
+        79.87603
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0668",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.20073,
+        79.8758
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0669",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.25555,
+        79.88631
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0670",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.239,
+        79.8576
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0671",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.24297,
+        79.84687
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0672",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.29729,
+        79.86537
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0673",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.22888,
+        79.82408
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0674",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.28754,
+        79.86742
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0675",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.23135,
+        79.82006
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0676",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.21169,
+        79.85428
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0677",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.23074,
+        79.84054
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0678",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.28928,
+        79.81322
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0679",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.22332,
+        79.81078
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0680",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.2751,
+        79.8485
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0681",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.29636,
+        79.81773
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0682",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.25595,
+        79.8831
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0683",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.2642,
+        79.84084
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0684",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.20649,
+        79.88205
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0685",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.29257,
+        79.85071
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0686",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.27592,
+        79.86464
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0687",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.23944,
+        79.81685
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0688",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.25418,
+        79.87774
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0689",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.27252,
+        79.8488
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0690",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.20821,
+        79.85993
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0691",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.20836,
+        79.83556
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0692",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.26842,
+        79.84716
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0693",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.23342,
+        79.83601
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0694",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.20577,
+        79.89599
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0695",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.21684,
+        79.87356
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0696",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.29809,
+        79.87498
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0697",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.2226,
+        79.83707
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0698",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.20495,
+        79.81406
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0699",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.20341,
+        79.85396
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0700",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.28044,
+        79.8209
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0701",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.27952,
+        79.87421
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0702",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.2925,
+        79.81686
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0703",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.2851,
+        79.83579
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0704",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.20887,
+        79.80398
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0705",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.23316,
+        79.81606
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0706",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.21198,
+        79.87048
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0707",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.24973,
+        79.85869
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0708",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.21752,
+        79.8109
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0709",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.22712,
+        79.87491
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0710",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.26656,
+        79.85092
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0711",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.28865,
+        79.85091
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0712",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.27637,
+        79.88372
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0713",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.21038,
+        79.88832
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0714",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.22231,
+        79.84699
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0715",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.2782,
+        79.87202
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0716",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.2369,
+        79.8878
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0717",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.23441,
+        79.83942
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0718",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.27526,
+        79.84293
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0719",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.29709,
+        79.81448
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0720",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.29682,
+        79.89292
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0721",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.25732,
+        79.82061
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0722",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.28912,
+        79.8459
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0723",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.29622,
+        79.86111
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0724",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.2501,
+        79.86149
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0725",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.29932,
+        79.83438
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0726",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.27849,
+        79.85489
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0727",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.21734,
+        79.83987
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0728",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.21778,
+        79.85746
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0729",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.28924,
+        79.80774
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0730",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.22594,
+        79.83752
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0731",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.21313,
+        79.80154
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0732",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.23381,
+        79.81051
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0733",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.27695,
+        79.87554
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0734",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.20457,
+        79.87569
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0735",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.27491,
+        79.82518
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0736",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.29291,
+        79.86663
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0737",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.27318,
+        79.85247
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0738",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.24616,
+        79.82251
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0739",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.28021,
+        79.88281
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0740",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.20104,
+        79.86571
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0741",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.29977,
+        79.80643
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0742",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.22964,
+        79.81159
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0743",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.22256,
+        79.80709
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0744",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.22214,
+        79.88138
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0745",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.26879,
+        79.88451
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0746",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.22375,
+        79.86342
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0747",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.2995,
+        79.84306
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0748",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.25142,
+        79.83758
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0749",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.2766,
+        79.88266
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0750",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.22269,
+        79.82282
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0751",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.29417,
+        79.85238
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0752",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.24595,
+        79.80214
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0753",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.29167,
+        79.88883
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0754",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.28826,
+        79.81828
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0755",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.27822,
+        79.81281
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0756",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.26821,
+        79.86621
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0757",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.20128,
+        79.83253
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0758",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.24382,
+        79.80356
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0759",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.23643,
+        79.85413
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0760",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.26108,
+        79.86073
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0761",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.27003,
+        79.82491
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0762",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.28148,
+        79.80864
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0763",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.26315,
+        79.80881
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0764",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.22546,
+        79.80329
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0765",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.28726,
+        79.86655
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0766",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.20233,
+        79.82439
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0767",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.24217,
+        79.86424
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0768",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.24966,
+        79.82572
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0769",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.28451,
+        79.81826
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0770",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.22879,
+        79.84598
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0771",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.29169,
+        79.83024
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0772",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.27701,
+        79.8568
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0773",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.29706,
+        79.89811
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0774",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.20796,
+        79.85527
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0775",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.23521,
+        79.87769
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0776",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.26051,
+        79.82983
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0777",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.27008,
+        79.85006
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0778",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.24875,
+        79.80523
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0779",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.23318,
+        79.89998
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0780",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.25681,
+        79.87821
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0781",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.26453,
+        79.87129
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0782",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.21127,
+        79.8323
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0783",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.29685,
+        79.88383
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0784",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.21559,
+        79.84907
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0785",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.27581,
+        79.83994
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0786",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.25778,
+        79.81514
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0787",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.21386,
+        79.89266
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0788",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.22463,
+        79.8726
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0789",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.24311,
+        79.8143
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0790",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.25291,
+        79.80831
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0791",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.25713,
+        79.80789
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0792",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.29803,
+        79.88367
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0793",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.20207,
+        79.84995
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0794",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.21053,
+        79.81473
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0795",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.24678,
+        79.87425
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0796",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.25907,
+        79.88576
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0797",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.21128,
+        79.83225
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0798",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.25681,
+        79.89986
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0799",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.22073,
+        79.81462
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0800",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.28568,
+        79.88321
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0801",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.24183,
+        79.86115
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0802",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.24966,
+        79.80416
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0803",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.2324,
+        79.83838
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0804",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.29672,
+        79.86616
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0805",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.24644,
+        79.86846
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0806",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.26482,
+        79.80098
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0807",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.25576,
+        79.8162
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0808",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.24002,
+        79.81548
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0809",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.25795,
+        79.86646
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0810",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.24131,
+        79.83203
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0811",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.20346,
+        79.85033
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0812",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.27509,
+        79.88434
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0813",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.21389,
+        79.84874
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0814",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.2438,
+        79.83849
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0815",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.24824,
+        79.83344
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0816",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.2701,
+        79.82909
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0817",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.28329,
+        79.88123
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0818",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.25303,
+        79.86282
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0819",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.24611,
+        79.82218
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0820",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.20817,
+        79.8592
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0821",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.26666,
+        79.89202
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0822",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.29802,
+        79.88532
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0823",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.23841,
+        79.83422
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0824",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.20584,
+        79.85636
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0825",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.23509,
+        79.82949
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0826",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.20417,
+        79.84152
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0827",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.25919,
+        79.843
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0828",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.25435,
+        79.84947
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0829",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.20501,
+        79.89383
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0830",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.26843,
+        79.86027
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0831",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.24251,
+        79.8638
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0832",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.25828,
+        79.88056
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0833",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.26394,
+        79.82585
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0834",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.23537,
+        79.85472
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0835",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.24086,
+        79.80217
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0836",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.20068,
+        79.86057
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0837",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.22114,
+        79.89341
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0838",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.26838,
+        79.89967
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0839",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.25032,
+        79.80947
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0840",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.28071,
+        79.85618
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0841",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.23608,
+        79.89826
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0842",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.25872,
+        79.81417
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0843",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.2359,
+        79.85823
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0844",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.22085,
+        79.82301
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0845",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.23548,
+        79.82742
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0846",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.25207,
+        79.87582
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0847",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.29879,
+        79.82536
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0848",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.20209,
+        79.89264
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0849",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.27446,
+        79.8249
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0850",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.20713,
+        79.85245
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0851",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.2159,
+        79.81853
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0852",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.25617,
+        79.87396
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0853",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.25879,
+        79.85026
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0854",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.22384,
+        79.80258
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0855",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.26399,
+        79.81317
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0856",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.22863,
+        79.88976
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0857",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.28762,
+        79.86303
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0858",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.20434,
+        79.88115
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0859",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.27121,
+        79.82859
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0860",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.22693,
+        79.88018
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0861",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.29575,
+        79.80532
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0862",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.2829,
+        79.82216
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0863",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.22991,
+        79.81661
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0864",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.28317,
+        79.86466
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0865",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.29933,
+        79.81936
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0866",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.24581,
+        79.83619
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0867",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.28997,
+        79.82562
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0868",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.2501,
+        79.84025
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0869",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.27912,
+        79.86845
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0870",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.20474,
+        79.80365
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0871",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.29843,
+        79.82116
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0872",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.20136,
+        79.86584
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0873",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.24744,
+        79.85491
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0874",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.21867,
+        79.84357
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0875",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.21233,
+        79.8059
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0876",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.25172,
+        79.84667
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0877",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.26981,
+        79.86476
+      ],
+      "occupant_count": 4
+    },
+    {
+      "point_id": "rp-0878",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.2136,
+        79.85714
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0879",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.24042,
+        79.89838
+      ],
+      "occupant_count": 6
+    },
+    {
+      "point_id": "rp-0880",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.25637,
+        79.8258
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0881",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.23717,
+        79.8634
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0882",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.22053,
+        79.8307
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0883",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.23795,
+        79.88657
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0884",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.21948,
+        79.84188
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0885",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.24739,
+        79.8287
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0886",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.28027,
+        79.87794
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0887",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.22378,
+        79.85295
+      ],
+      "occupant_count": 3
+    },
+    {
+      "point_id": "rp-0888",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.23606,
+        79.87987
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0889",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.2726,
+        79.8489
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0890",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.28316,
+        79.86697
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0891",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.25297,
+        79.84313
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0892",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.20925,
+        79.85663
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0893",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.25772,
+        79.85645
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0894",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.29327,
+        79.84525
+      ],
+      "occupant_count": 2
+    },
+    {
+      "point_id": "rp-0895",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.21366,
+        79.8893
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0896",
+      "area_id": "Ward-7 North",
+      "coords": [
+        11.21439,
+        79.8546
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0897",
+      "area_id": "Ward-7 South",
+      "coords": [
+        11.27202,
+        79.8653
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0898",
+      "area_id": "Riverside Colony",
+      "coords": [
+        11.25278,
+        79.87529
+      ],
+      "occupant_count": 1
+    },
+    {
+      "point_id": "rp-0899",
+      "area_id": "Kanal Street",
+      "coords": [
+        11.27449,
+        79.81332
+      ],
+      "occupant_count": 5
+    },
+    {
+      "point_id": "rp-0900",
+      "area_id": "Old Ferry Road",
+      "coords": [
+        11.28106,
+        79.82231
+      ],
+      "occupant_count": 4
+    }
+  ]
+}

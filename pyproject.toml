@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "thunai"
+version = "0.1.0"
+description = "ThunAI — a neighbourhood emergency-response agent that runs autonomously and only surfaces when a real decision must be made."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "ThunAI contributors" }]
+keywords = ["strands-agents", "bedrock-agentcore", "emergency-response", "agents-for-humans"]
+
+# Exact pins only — kept in lockstep with requirements.txt (Req 19.8).
+# Pinned to the latest stable PyPI release of each package per explicit user
+# instruction (supersedes the original design.md pins of
+# strands-agents==1.54.0 / strands-agents-tools==0.8.7). Re-verify against
+# PyPI before each milestone since the SDK ships weekly.
+dependencies = [
+    "strands-agents==1.55.0",
+    "strands-agents-tools==0.8.8",
+    "bedrock-agentcore==1.22.0",
+    "pydantic==2.13.5",
+    "boto3==1.43.90",
+    "aws-cdk-lib==2.268.0",
+    "constructs==10.8.1",
+]
+
+[project.optional-dependencies]
+# Test toolchain: unit tests (pytest) + property-based tests (Hypothesis).
+test = [
+    "pytest==9.1.1",
+    "hypothesis==6.168.0",
+    "moto==5.2.3",
+]
+
+[tool.setuptools]
+packages = [
+    "agents",
+    "tools",
+    "harness",
+    "policy",
+    "schemas",
+    "integrations",
+    "memory",
+    "surface",
+    "triggers",
+    "infra",
+    "infra.checks",
+    "infra.stacks",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]

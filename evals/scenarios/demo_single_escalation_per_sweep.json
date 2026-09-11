@@ -1,0 +1,17 @@
+{
+  "scenario_id": "demo-single-escalation-per-sweep",
+  "kind": "sweep",
+  "coverage": "Req 11.9 exactly one Escalation_Record over the seeded routine rising-river sweep (design.md §3.4 tuning note)",
+  "input_fixture_id": "seed:hazard_readings (35-day rising-river series)",
+  "input": {
+    "sweep_step_hours": 1,
+    "reading_types": ["river_level", "rainfall_rate", "dam_release"],
+    "escalation_bands": ["EVACUATE"],
+    "confidence": 0.96
+  },
+  "expected_observable_outcome": {
+    "escalation_record_count": 1,
+    "peak_band": "EVACUATE"
+  },
+  "pass_condition": "Walking the full seeded 35-day hazard series through the real Rule_Engine, the combined severity band rises into EVACUATE exactly once, so exactly one Escalation_Record is produced across the whole sweep despite the band remaining elevated for many steps (no re-escalation on a sustained band)."
+}
