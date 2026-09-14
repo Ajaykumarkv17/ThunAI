@@ -1,0 +1,69 @@
+EXTERNAL (outside AWS)
+    Residents / Coordinator / Responder  (browser)
+    Sensors / gov feeds                  (external data in)
+    Decision to approve  [HITL escalation]   <---- dashed red loop
+        |   HTTPS
+        v
++-- CONTENT DELIVERY ----------------------------------------------------------+
+| AWS Amplify Hosting     <-  React / Vite SPA (3 surfaces)                    |
+|      |   auth (SRP)  ->  Amazon Cognito user pool                            |
+|      |                     (coordinators / responders)                       |
++---------------|--------------------------------------------------------------+
+         |   fetch /api/*
+         v
++-- SERVERLESS BACKEND (core) -------------------------------------------------+
+|                                                                              |
+| Lambda Function URL (resident_api, no 30s cap)                               |
+| Ingestion Lambda      ->  POST /intake                                       |
+| Amazon API Gateway (REST)                                                    |
+|      ->  escalations . responders . status . intake                          |
+|      |                                                                       |
+|      v                                                                       |
+| AWS Lambda  (escalation_service / responder_api)                             |
+|      |   mode=intake  .  mode=resume                                         |
+|      v                                                                       |
+| AgentCore Runtime (arm64)                                                    |
+|      +-- Strands incident graph:                                             |
+|            rule -> monitor -> intake ->                                      |
+|            dispatch / alert -> safety-QA                                     |
+|                                                                              |
+| Sweep / Timeout Agent                                                        |
+|      +-- EventBridge rate(10 min) -> scan on schedule                        |
+|      +-- EventBridge rate(1 min)  -> resume on timeout                       |
+|                                                                              |
+| Tools:  intake . dispatch . alert . escalation .                             |
+|         knowledge . sensor . incident                                        |
+| Policy engine (decision authority):                                          |
+|         rule_engine . escalation_policy .                                    |
+|         safety_policy / HITL                                                 |
+|      |                                                                       |
+|      v                                                                       |
+| Data tier                                                                    |
+|      +-- DynamoDB  thunai-state   (DynamoDB Streams)                         |
+|      +-- DynamoDB  thunai-audit                                              |
+|      +-- DynamoDB  thunai-memory                                             |
+|      +-- Amazon S3  working context + images                                 |
+|      |                                                                       |
+|      v                                                                       |
+| Realtime / Notifications                                                     |
+|      +-- AppSync Events (WebSocket)                                          |
+|      |       <- stream_publisher <- DynamoDB Streams                         |
+|      +-- Amazon SNS  (SMS)                                                   |
+|      +-- Amazon SES  (email)                                                 |
+|                                                                              |
+| [i] Execution role scoped to:                                                |
+|     Nova . Titan . SNS . SES . DynamoDB . S3 . KB ARNs                       |
++---------------|--------------------------------------------------------------+
+                |
+                v
++-- AMAZON AI SERVICES --------------------------------------------------------+
+| Bedrock - Nova           (reasoning)     <- InvokeModel                      |
+| Bedrock Knowledge Base   (S3 Vectors)    <- Retrieve                         |
+| AgentCore Memory         (coordinator)   <- read/write                       |
++------------------------------------------------------------------------------+
+
+FLOW
+    user -> Amplify / Cognito -> Lambda -> AgentCore Runtime
+         -> Strands graph (rule -> monitor -> intake ->
+            dispatch / alert -> safety-QA)
+         -> Nova / KB . AppSync pushes state to all surfaces.

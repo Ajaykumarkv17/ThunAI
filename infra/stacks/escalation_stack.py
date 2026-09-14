@@ -102,6 +102,24 @@ class EscalationStack(Stack):
             ),
         )
         escalations.add_method("GET")
+        # Coordinator open-incident list (Req 12.4): GET /incidents?status=OPEN.
+        incidents = self.api.root.add_resource(
+            "incidents",
+            default_cors_preflight_options=apigateway.CorsOptions(
+                allow_origins=apigateway.Cors.ALL_ORIGINS,
+                allow_methods=["GET", "OPTIONS"],
+            ),
+        )
+        incidents.add_method("GET")
+        # Coordinator recent-runs cost/latency list (Req 1.7, 12.8): GET /runs.
+        runs = self.api.root.add_resource(
+            "runs",
+            default_cors_preflight_options=apigateway.CorsOptions(
+                allow_origins=apigateway.Cors.ALL_ORIGINS,
+                allow_methods=["GET", "OPTIONS"],
+            ),
+        )
+        runs.add_method("GET")
         # One-tap response route the frontend calls:
         # POST /escalations/{escalationId}/respond  {optionId}
         escalation_id = escalations.add_resource("{escalationId}")

@@ -107,6 +107,9 @@ export interface RecentRunsState {
 export function useRecentRuns(): RecentRunsState {
   const [runs, setRuns] = useState<RunSummary[]>([]);
   const [loading, setLoading] = useState(true);
+  // Staleness reflects an actual data-retrieval failure, NOT a merely-quiet
+  // realtime socket: the polling fetch keeps the list current regardless.
+  const [retrievalFailed, setRetrievalFailed] = useState(false);
 
   const fetchRuns = useCallback(async () => {
     try {
@@ -118,8 +121,11 @@ export function useRecentRuns(): RecentRunsState {
       }
       const next = extractRuns(await res.json());
       setRuns(orderRuns(next));
+      setRetrievalFailed(false);
     } catch {
-      // Leave the last-known list in place; realtime + the next poll reconcile.
+      // Leave the last-known list in place; the next poll reconciles. Surface
+      // staleness only because the retrieval itself failed.
+      setRetrievalFailed(true);
     } finally {
       setLoading(false);
     }
@@ -138,11 +144,14 @@ export function useRecentRuns(): RecentRunsState {
     void fetchRuns();
   }, [fetchRuns]);
 
-  const { stale: connectionStale } = useIncidentUpdates('/runs/*', onUpdate);
+  // Keep the live subscription for instant updates when it works, but do NOT
+  // let a quiet socket drive the staleness banner — the poll fetch keeps the
+  // list current, so staleness reflects a real retrieval failure only.
+  useIncidentUpdates('/runs/*', onUpdate);
 
   return {
     runs,
     loading,
-    connectionStale,
+    connectionStale: retrievalFailed,
   };
 }

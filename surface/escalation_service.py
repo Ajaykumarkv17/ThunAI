@@ -1217,6 +1217,47 @@ def _maybe_create_assignment_from_escalation(escalation_id: str) -> None:
         app.logger.error("assignment handshake failed for %s: %r", escalation_id, exc)
 
 
+def _incident_summary_to_json(row: Any) -> dict[str, Any]:
+    """Serialize a queries.IncidentSummary to the camelCase shape the
+    coordinator IncidentList frontend (coordinator/types.ts) expects."""
+    return {
+        "incidentId": row.incident_id,
+        "severityBand": row.severity_band,
+        "affectedAreas": list(row.affected_areas),
+        "openRequestCount": row.open_request_count,
+        "assignedResponderCount": row.assigned_responder_count,
+        "updatedAt": row.updated_at,
+        "shelters": [
+            {
+                "shelterId": s.shelter_id,
+                "name": s.name,
+                "unoccupiedPlaces": s.unoccupied_places,
+                "totalCapacity": s.total_capacity,
+            }
+            for s in row.shelters
+        ],
+    }
+
+
+def _run_summary_to_json(row: Any) -> dict[str, Any]:
+    """Serialize a queries.RunSummary to the camelCase shape the coordinator
+    RunList frontend (coordinator/types.ts) expects."""
+    return {
+        "runId": row.run_id,
+        "triggerType": row.trigger_type,
+        "triggerSourceId": row.trigger_source_id,
+        "startedAt": row.started_at,
+        "terminalStatus": row.terminal_status,
+        "inputTokens": row.input_tokens,
+        "outputTokens": row.output_tokens,
+        "totalTokens": row.total_tokens,
+        "latencyMs": row.latency_ms,
+        "modelId": row.model_id,
+        "estimatedCost": row.estimated_cost,
+        "currency": row.currency,
+    }
+
+
 def handler(event: dict[str, Any] | None = None, context: Any = None) -> dict[str, Any]:
     """API Gateway proxy entry point for the coordinator escalation surface.
 
@@ -1240,6 +1281,24 @@ def handler(event: dict[str, Any] | None = None, context: Any = None) -> dict[st
         return _response(204, {})
 
     try:
+        # Coordinator open-incident list (Req 12.4). The frontend
+        # (useOpenIncidents) calls GET /incidents?status=OPEN and expects a
+        # JSON array of camelCase IncidentSummary rows.
+        if method == "GET" and "incident" in path:
+            from surface import queries as _queries
+
+            view = _queries.list_open_incidents()
+            return _response(200, [_incident_summary_to_json(r) for r in view.items])
+
+        # Coordinator recent-runs cost/latency list (Req 1.7, 12.8). The
+        # frontend (useRecentRuns) calls GET /runs and expects a JSON array of
+        # camelCase RunSummary rows.
+        if method == "GET" and "run" in path:
+            from surface import queries as _queries
+
+            view = _queries.list_recent_runs()
+            return _response(200, [_run_summary_to_json(r) for r in view.items])
+
         if method == "GET" and "escalation" in path:
             records = _state_store.query_open_escalations()
             return _response(200, [_record_to_inbox_json(r) for r in records])

@@ -74,6 +74,10 @@ export interface OpenIncidentsState {
 export function useOpenIncidents(): OpenIncidentsState {
   const [incidents, setIncidents] = useState<IncidentSummary[]>([]);
   const [loading, setLoading] = useState(true);
+  // Staleness reflects an actual data-retrieval failure, NOT a merely-quiet
+  // realtime socket: the polling fetch keeps the list current regardless, so a
+  // silent websocket is not stale data. Only flip this true when a fetch fails.
+  const [retrievalFailed, setRetrievalFailed] = useState(false);
 
   const fetchIncidents = useCallback(async () => {
     try {
@@ -85,8 +89,11 @@ export function useOpenIncidents(): OpenIncidentsState {
       }
       const next = (await res.json()) as IncidentSummary[];
       setIncidents(orderOpenIncidents(next));
+      setRetrievalFailed(false);
     } catch {
-      // Leave the last-known list in place; realtime + the next poll reconcile.
+      // Leave the last-known list in place; the next poll reconciles. Surface
+      // staleness only because the retrieval itself failed.
+      setRetrievalFailed(true);
     } finally {
       setLoading(false);
     }
@@ -100,17 +107,18 @@ export function useOpenIncidents(): OpenIncidentsState {
 
   // Live updates: any incident or shelter commit re-fetches so the list, its
   // ordering, the per-incident counts, and shelter availability stay consistent
-  // with State_Store (Req 12.5).
+  // with State_Store (Req 12.5). A quiet socket is NOT surfaced as stale — the
+  // poll fetch above keeps the data current.
   const onUpdate = useCallback(() => {
     void fetchIncidents();
   }, [fetchIncidents]);
 
-  const { stale: incidentsStale } = useIncidentUpdates('/incidents/*', onUpdate);
-  const { stale: sheltersStale } = useIncidentUpdates('/shelters/*', onUpdate);
+  useIncidentUpdates('/incidents/*', onUpdate);
+  useIncidentUpdates('/shelters/*', onUpdate);
 
   return {
     incidents,
     loading,
-    connectionStale: incidentsStale || sheltersStale,
+    connectionStale: retrievalFailed,
   };
 }

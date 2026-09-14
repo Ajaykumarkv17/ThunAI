@@ -21,7 +21,7 @@ import { useIncidentUpdates } from '../shared/realtime';
 import type { ResidentStatus } from './types';
 
 /** Configured public refresh interval (ms). Bounds public fan-out cost. */
-const REFRESH_INTERVAL_MS = 15_000;
+const REFRESH_INTERVAL_MS = 10_000;
 
 /** Public read endpoint base for the aggregate status snapshot (Req 14.1). */
 const STATUS_API_BASE = (import.meta.env?.VITE_STATUS_API_BASE as string | undefined) ?? '';
