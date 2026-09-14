@@ -38,15 +38,22 @@ class EscalationStack(Stack):
         construct_id: str,
         *,
         state_table,
+        audit_table,
         runtime_arn: str,
         **kwargs,
     ) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
         code = lambda_source()
+        import os as _os
+
         common_env = {
             "THUNAI_RUNTIME_ARN": runtime_arn,
             "THUNAI_STATE_TABLE": state_table.table_name,
+            "THUNAI_AUDIT_TABLE": audit_table.table_name,
+            # Demo: the responder that an approved dispatch assignment is
+            # created for (the live coordinator -> responder handshake).
+            "THUNAI_DEMO_RESPONDER_ID": _os.environ.get("THUNAI_DEMO_RESPONDER_ID", ""),
         }
 
         invoke_runtime_policy = iam.PolicyStatement(
@@ -70,6 +77,7 @@ class EscalationStack(Stack):
             environment=common_env,
         )
         state_table.grant_read_write_data(self.escalation_fn)
+        audit_table.grant_read_write_data(self.escalation_fn)
         self.escalation_fn.add_to_role_policy(invoke_runtime_policy)
         self.escalation_fn.add_to_role_policy(notify_policy)
 
@@ -83,6 +91,32 @@ class EscalationStack(Stack):
         )
         resolve = self.api.root.add_resource("resolve")
         resolve.add_method("POST")
+        # Coordinator Decision_Inbox read route (GET /escalations?status=OPEN).
+        # Served by the same Lambda; CORS enabled so the local Vite dev server
+        # (a different origin) can call it directly.
+        escalations = self.api.root.add_resource(
+            "escalations",
+            default_cors_preflight_options=apigateway.CorsOptions(
+                allow_origins=apigateway.Cors.ALL_ORIGINS,
+                allow_methods=["GET", "OPTIONS"],
+            ),
+        )
+        escalations.add_method("GET")
+        # One-tap response route the frontend calls:
+        # POST /escalations/{escalationId}/respond  {optionId}
+        escalation_id = escalations.add_resource("{escalationId}")
+        respond = escalation_id.add_resource(
+            "respond",
+            default_cors_preflight_options=apigateway.CorsOptions(
+                allow_origins=apigateway.Cors.ALL_ORIGINS,
+                allow_methods=["POST", "OPTIONS"],
+            ),
+        )
+        respond.add_method("POST")
+        resolve.add_cors_preflight(
+            allow_origins=apigateway.Cors.ALL_ORIGINS,
+            allow_methods=["POST", "OPTIONS"],
+        )
         self.api_url = self.api.url
 
         # --- 1-minute timeout sweeper --------------------------------------
@@ -97,6 +131,7 @@ class EscalationStack(Stack):
             environment=common_env,
         )
         state_table.grant_read_write_data(self.timeout_fn)
+        audit_table.grant_read_write_data(self.timeout_fn)
         self.timeout_fn.add_to_role_policy(invoke_runtime_policy)
         self.timeout_fn.add_to_role_policy(notify_policy)
 

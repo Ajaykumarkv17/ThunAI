@@ -69,7 +69,7 @@ function TranslatedText({ tr, note }: { tr: Translation; note: string }) {
 export function ResidentStatusPage() {
   const i18n = useI18n();
   const { t, tf, language, setLanguage } = i18n;
-  const { status, loading, retrievalFailed, lastRetrievedAt, connectionStale } =
+  const { status, loading, retrievalFailed, lastRetrievedAt } =
     useResidentStatus();
 
   const translationUnavailable = t('translation.unavailable');
@@ -102,8 +102,11 @@ export function ResidentStatusPage() {
         </p>
       </section>
 
-      {/* Data-freshness notices (Req 14.8, 14.9). */}
-      {(retrievalFailed || connectionStale) && (
+      {/* Data-freshness notice (Req 14.8, 14.9). Shown only when the actual
+          data retrieval fails — NOT when the realtime websocket is merely
+          quiet, since the 15s polling fetch keeps the values current
+          regardless (a quiet socket is not stale data). */}
+      {retrievalFailed && (
         <p className="data-freshness" role="status" aria-live="polite">
           {t('status.dataMayBeOutdated')}
           {lastRetrievedAt && (
@@ -124,6 +127,7 @@ export function ResidentStatusPage() {
         <>
           <SeveritySection
             severity={status.severity}
+            severityReason={status.severityReason}
             readingTimestamp={status.readingTimestamp}
             readingStale={status.readingStale}
             i18n={i18n}
@@ -177,38 +181,44 @@ export function ResidentStatusPage() {
             )}
           </section>
 
-          {/* Active rule set: thresholds, units, staleness limit, version (Req 2.7). */}
-          <section className="rule-set" aria-labelledby="ruleset-heading">
-            <h2 id="ruleset-heading">{t('ruleset.title')}</h2>
+          {/* Current hazard levels vs the evacuate threshold — the plain
+              "how close are we to danger?" view residents care about. */}
+          <section className="levels" aria-labelledby="levels-heading">
+            <h2 id="levels-heading">Current levels</h2>
             <table>
               <thead>
                 <tr>
-                  <th scope="col">{t('ruleset.threshold')}</th>
-                  <th scope="col">{t('ruleset.value')}</th>
+                  <th scope="col">Measurement</th>
+                  <th scope="col">Current level</th>
+                  <th scope="col">Danger threshold</th>
+                  <th scope="col">Status</th>
                 </tr>
               </thead>
               <tbody>
-                {status.ruleSet.thresholds.map((th) => (
-                  <tr key={th.label}>
-                    <td>{th.label}</td>
+                {(status.levels ?? []).map((lvl) => (
+                  <tr key={lvl.label} className={lvl.exceeded ? 'level--exceeded' : undefined}>
+                    <td>{lvl.label}</td>
                     <td>
-                      {th.value} {th.unit}
+                      {lvl.currentValue == null ? '—' : `${lvl.currentValue} ${lvl.unit}`}
+                    </td>
+                    <td>
+                      {lvl.thresholdValue} {lvl.unit}
+                    </td>
+                    <td>
+                      <span className={lvl.exceeded ? 'level-pill level-pill--danger' : 'level-pill level-pill--safe'}>
+                        {lvl.exceeded ? 'Above danger' : 'Within safe range'}
+                      </span>
                     </td>
                   </tr>
                 ))}
-                <tr>
-                  <td>{t('ruleset.stalenessLimit')}</td>
-                  <td>{Math.round(status.ruleSet.stalenessLimitSeconds / 60)} min</td>
-                </tr>
               </tbody>
             </table>
-            <p className="rule-set__version">
-              {t('ruleset.version')}: <code>{status.ruleSet.ruleSetVersion}</code>
-            </p>
           </section>
         </>
       ) : (
-        <p role="alert">{t('status.dataMayBeOutdated')}</p>
+        <p className="resident-status__no-data" role="status" aria-live="polite">
+          Live status is not available right now. Please check official emergency channels.
+        </p>
       )}
     </main>
   );
@@ -221,8 +231,10 @@ function SeveritySection({
   readingStale,
   i18n,
   translationUnavailable,
+  severityReason,
 }: {
   severity: SeverityBand;
+  severityReason?: string;
   readingTimestamp: string;
   readingStale: boolean;
   i18n: ReturnType<typeof useI18n>;
@@ -239,6 +251,11 @@ function SeveritySection({
       <p className="severity__band">
         <TranslatedText tr={tf(`status.severity.${severity}`)} note={translationUnavailable} />
       </p>
+      {severityReason && (
+        <p className="severity__reason">
+          <strong>Why:</strong> {severityReason}
+        </p>
+      )}
       <p className="severity__action">
         <strong>{t('status.recommendedAction')}:</strong>{' '}
         <TranslatedText

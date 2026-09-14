@@ -684,15 +684,96 @@ signals a hard node failure (mapped to ``failed``); returning normally lets
 
 
 async def _default_node_runner(executor: Any, invocation_state: dict[str, Any]) -> Any:
-    """Invoke ``executor.invoke_async(task, invocation_state)`` (Req 4.4/design).
+    """Invoke a node's ``invoke_async`` (Req 4.4/design), handling both node types.
 
-    Both ``MultiAgentBase`` subclasses (``RuleEngineNode``) and Strands
-    ``Agent`` objects expose ``invoke_async``; ThunAI's deterministic nodes
-    read everything from ``invocation_state`` and ignore ``task`` (see
-    ``RuleEngineNode`` docstring), and the LLM agents take their prompt from
-    ``invocation_state`` too, so the driver passes an empty ``task``.
+    The two node kinds have DIFFERENT ``invoke_async`` signatures in the
+    pinned ``strands-agents==1.55.0`` SDK, so the driver must call each the
+    way that SDK version declares:
+
+    - ``MultiAgentBase`` subclasses (``RuleEngineNode``):
+      ``invoke_async(task, invocation_state)`` — ``invocation_state`` is the
+      second POSITIONAL parameter.
+    - Strands ``Agent`` (the LLM nodes: monitor/intake/dispatch/alert/
+      safety_qa): ``invoke_async(prompt=None, *, invocation_state=None, ...)``
+      — ``invocation_state`` is KEYWORD-ONLY. Passing it positionally raises
+      ``TypeError: invoke_async() takes from 1 to 2 positional arguments but 3
+      were given`` (which previously failed every LLM node at runtime).
+
+    ThunAI's nodes all read everything they need from ``invocation_state`` and
+    ignore the prompt/task, so an empty prompt is passed in both cases.
     """
-    return await executor.invoke_async("", invocation_state)
+    from strands.multiagent.base import MultiAgentBase
+
+    if isinstance(executor, MultiAgentBase):
+        # MultiAgentBase: invocation_state is positional arg #2. These nodes
+        # ignore the task, so an empty string is fine here.
+        return await executor.invoke_async("", invocation_state)
+    # Strands Agent (the LLM nodes): invocation_state is keyword-only in the
+    # pinned SDK, AND the call needs a real user prompt (an empty/None prompt
+    # is rejected by Bedrock's ConverseStream). Each agent has a role-specific
+    # system prompt + tools; we hand it a concise task prompt built from the
+    # shared invocation_state so it can fetch specifics via its own tools and
+    # produce its structured decision.
+    agent_name = getattr(executor, "name", None) or getattr(executor, "agent_id", "")
+    prompt = _build_node_prompt(str(agent_name), invocation_state)
+    return await executor.invoke_async(prompt, invocation_state=invocation_state)
+
+
+def _build_node_prompt(agent_name: str, ctx: dict[str, Any]) -> str:
+    """Build the user prompt for one LLM ``Agent`` node from the shared context.
+
+    The graph threads one ``invocation_state`` (``incident_ctx``) to every
+    node. Each specialist agent needs a task prompt naming what to assess;
+    the agent's own tools (river-level/rainfall/dam-release readers, candidate-
+    responder finder, etc.) fetch the specifics, and its
+    ``structured_output_model`` shapes the decision the graph branches on.
+    """
+    reach = ctx.get("river_reach_id", "the monitored reach")
+    as_of = ctx.get("as_of", "now")
+    incident_id = ctx.get("incident_id", "")
+    readings = ctx.get("readings", {})
+    message = ctx.get("message", "")
+    language = ctx.get("language", "English")
+
+    if agent_name == "monitor_agent":
+        return (
+            f"Assess the flood hazard for river reach {reach!r} as of {as_of}. "
+            f"Latest readings: {readings}. Use your reading tools and the prior "
+            f"sweep to judge whether this is a meaningful change worth a human's "
+            f"attention. Return your hazard assessment (severity band, confidence, "
+            f"proposed action, one-sentence rationale)."
+        )
+    if agent_name == "intake_agent":
+        return (
+            f"Triage this inbound resident message for reach {reach!r}: "
+            f"{message!r} (language: {language}). Resolve location and language, "
+            f"classify the request, and produce the structured emergency request "
+            f"including whether it is dispatch-eligible."
+        )
+    if agent_name == "dispatch_agent":
+        return (
+            f"Decide responder dispatch for incident {incident_id!r} on reach "
+            f"{reach!r}. Use your candidate-responder tool to find who is "
+            f"available and produce a dispatch decision, flagging any "
+            f"irreversible action for human approval."
+        )
+    if agent_name == "alert_agent":
+        return (
+            f"Compose ONE short recommended-action sentence in {language} for "
+            f"incident {incident_id!r} on reach {reach!r}, based on the current "
+            f"severity and readings {readings}."
+        )
+    if agent_name == "safety_qa_agent":
+        return (
+            f"Review the proposed public-facing content for incident "
+            f"{incident_id!r} against the safety rubric and return your safety "
+            f"review (pass/fail with any violated policy ids)."
+        )
+    # Fallback: a generic assessment prompt so an unrecognised agent still runs.
+    return (
+        f"Process the current incident context for reach {reach!r} as of {as_of} "
+        f"and return your structured decision."
+    )
 
 
 async def _run_one_node(
@@ -719,6 +800,17 @@ async def _run_one_node(
     except asyncio.TimeoutError:
         return ("timeout", node_timeout_s)
     except Exception as exc:  # noqa: BLE001 - a node's hard failure (Req 4.6/4.7)
+        # Log the concrete cause so a container run surfaces WHY a node failed
+        # (the run-outcome audit entry records only the status, not the trace).
+        import logging
+        import traceback
+
+        logging.getLogger("thunai.incident_graph").error(
+            "NODE FAILURE in %r: %s\n%s",
+            getattr(executor, "name", type(executor).__name__),
+            repr(exc),
+            traceback.format_exc(),
+        )
         return ("error", exc)
 
 

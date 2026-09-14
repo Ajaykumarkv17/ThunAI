@@ -100,6 +100,7 @@ export function useResponderAssignments(): ResponderAssignmentsState {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState<Record<string, boolean>>({});
   const [errors, setErrors] = useState<Record<string, ResponderError | undefined>>({});
+  const [fetchFailed, setFetchFailed] = useState(false);
 
   // Resolve the authenticated identity + responder-group membership once. The
   // interface is restricted to authenticated members of the responders group
@@ -141,8 +142,11 @@ export function useResponderAssignments(): ResponderAssignmentsState {
       // the authenticated identity (Req 13.6). Defence in depth over the scoped
       // fetch — the client refuses to present another responder's assignment.
       setAssignments(next.filter((a) => a.assignedResponderId === responderId));
+      setFetchFailed(false);
     } catch {
-      // Leave the last-known list in place; realtime + the next poll reconcile.
+      // Leave the last-known list in place; the next poll reconciles. Only a
+      // genuine fetch failure marks data stale (not a quiet websocket).
+      setFetchFailed(true);
     } finally {
       setLoading(false);
     }
@@ -166,7 +170,11 @@ export function useResponderAssignments(): ResponderAssignmentsState {
   const onUpdate = useCallback(() => {
     void fetchAssignments();
   }, [fetchAssignments]);
-  const { stale: connectionStale } = useIncidentUpdates(channel, onUpdate);
+  // Keep the realtime subscription running (re-fetches on any commit) but do
+  // NOT surface its quiet-websocket flag as a banner: the poll keeps the list
+  // current. Only a genuine fetch failure is shown as stale.
+  useIncidentUpdates(channel, onUpdate);
+  const connectionStale = fetchFailed;
 
   const submitAction = useCallback(
     async (assignmentId: string, action: ResponderAction) => {
@@ -237,15 +245,28 @@ export function useResponderAssignments(): ResponderAssignmentsState {
         if (!res.ok) {
           throw new Error(await res.text());
         }
-        // Success: the server transitions the assignment/request state and the
-        // AppSync event reflects the new state — no local mutation needed. A
-        // decline/completed response drops or moves the assignment via realtime.
+        // Success: the server transitioned the state. Optimistically advance
+        // the local assignment to the returned state so the controls re-gate
+        // immediately (the AppSync realtime push is best-effort and may be
+        // quiet), then reconcile with a fresh fetch.
+        const body = (await res.json().catch(() => null)) as { state?: string } | null;
+        if (body?.state) {
+          setAssignments((prev) =>
+            prev.map((a) =>
+              a.assignmentId === assignmentId
+                ? ({ ...a, state: body.state as Assignment['state'] })
+                : a,
+            ),
+          );
+        }
+        setSubmitting((prev) => ({ ...prev, [assignmentId]: false }));
+        void fetchAssignments();
       } catch {
         setErrors((prev) => ({ ...prev, [assignmentId]: { kind: 'submit_failed' } }));
         setSubmitting((prev) => ({ ...prev, [assignmentId]: false }));
       }
     },
-    [assignments, responderId],
+    [assignments, responderId, fetchAssignments],
   );
 
   // Drop disabled/error state for assignments that have left the list.

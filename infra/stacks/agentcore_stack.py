@@ -75,13 +75,32 @@ class AgentCoreStack(Stack):
             assumed_by=iam.ServicePrincipal("bedrock-agentcore.amazonaws.com"),
             description="ThunAI AgentCore Runtime execution role (least privilege).",
         )
-        # Model invocation — scoped to exactly the two permitted Nova ids.
+        # Model invocation — the two permitted Nova ids are cross-region
+        # INFERENCE PROFILES (``us.amazon.nova-*``), which require BOTH:
+        #   1. the inference-profile ARN in this account/region, AND
+        #   2. the underlying foundation-model ARNs the profile routes to
+        #      (the regional ``amazon.nova-*`` copies, no ``us.`` prefix),
+        # or Bedrock rejects ConverseStream with AccessDeniedException on
+        # ``bedrock:InvokeModelWithResponseStream``. Granting only the
+        # ``foundation-model/us.amazon.nova-*`` ARN (the previous behaviour)
+        # is the wrong resource type and denies every model call.
+        _low_base = _LOW_COST_MODEL.split(".", 1)[1] if _LOW_COST_MODEL.startswith("us.") else _LOW_COST_MODEL
+        _high_base = _HIGH_CAP_MODEL.split(".", 1)[1] if _HIGH_CAP_MODEL.startswith("us.") else _HIGH_CAP_MODEL
         exec_role.add_to_policy(
             iam.PolicyStatement(
                 actions=["bedrock:InvokeModel", "bedrock:InvokeModelWithResponseStream"],
                 resources=[
-                    f"arn:aws:bedrock:{region}::foundation-model/{_LOW_COST_MODEL}",
-                    f"arn:aws:bedrock:{region}::foundation-model/{_HIGH_CAP_MODEL}",
+                    # Inference-profile ARNs (account-scoped, regional).
+                    f"arn:aws:bedrock:{region}:{account}:inference-profile/{_LOW_COST_MODEL}",
+                    f"arn:aws:bedrock:{region}:{account}:inference-profile/{_HIGH_CAP_MODEL}",
+                    # Underlying foundation models the profiles route to, in
+                    # every US region a us.* profile can dispatch to.
+                    f"arn:aws:bedrock:us-east-1::foundation-model/{_low_base}",
+                    f"arn:aws:bedrock:us-east-2::foundation-model/{_low_base}",
+                    f"arn:aws:bedrock:us-west-2::foundation-model/{_low_base}",
+                    f"arn:aws:bedrock:us-east-1::foundation-model/{_high_base}",
+                    f"arn:aws:bedrock:us-east-2::foundation-model/{_high_base}",
+                    f"arn:aws:bedrock:us-west-2::foundation-model/{_high_base}",
                 ],
             )
         )
@@ -103,6 +122,54 @@ class AgentCoreStack(Stack):
         exec_role.add_to_policy(
             iam.PolicyStatement(
                 actions=["sns:Publish", "ses:SendEmail", "ses:SendRawEmail"],
+                resources=["*"],
+            )
+        )
+        # ECR image pull — AgentCore validates and pulls the runtime container
+        # image at create time, so the execution role MUST allow it or the
+        # Runtime resource fails with "Access denied while validating ECR URI".
+        # GetAuthorizationToken is account-wide (no resource scoping allowed);
+        # the layer/image reads are scoped to the thunai-runtime repository.
+        exec_role.add_to_policy(
+            iam.PolicyStatement(
+                actions=["ecr:GetAuthorizationToken"],
+                resources=["*"],
+            )
+        )
+        exec_role.add_to_policy(
+            iam.PolicyStatement(
+                actions=[
+                    "ecr:BatchGetImage",
+                    "ecr:GetDownloadUrlForLayer",
+                    "ecr:BatchCheckLayerAvailability",
+                ],
+                resources=[
+                    f"arn:aws:ecr:{region}:{account}:repository/thunai-runtime"
+                ],
+            )
+        )
+        # CloudWatch Logs + X-Ray so the runtime can emit logs/traces.
+        exec_role.add_to_policy(
+            iam.PolicyStatement(
+                actions=[
+                    "logs:CreateLogGroup",
+                    "logs:CreateLogStream",
+                    "logs:PutLogEvents",
+                    "logs:DescribeLogStreams",
+                    "logs:DescribeLogGroups",
+                ],
+                resources=[
+                    f"arn:aws:logs:{region}:{account}:log-group:/aws/bedrock-agentcore/*"
+                ],
+            )
+        )
+        exec_role.add_to_policy(
+            iam.PolicyStatement(
+                actions=[
+                    "xray:PutTraceSegments",
+                    "xray:PutTelemetryRecords",
+                    "cloudwatch:PutMetricData",
+                ],
                 resources=["*"],
             )
         )

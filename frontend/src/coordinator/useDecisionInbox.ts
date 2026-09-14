@@ -83,6 +83,7 @@ export function useDecisionInbox(): DecisionInboxState {
   const [nowMs, setNowMs] = useState(() => Date.now());
   const [submitting, setSubmitting] = useState<Record<string, boolean>>({});
   const [errors, setErrors] = useState<Record<string, string | undefined>>({});
+  const [fetchFailed, setFetchFailed] = useState(false);
 
   // Fetch the current OPEN records from Escalation_Service, ordered by deadline.
   const fetchInbox = useCallback(async () => {
@@ -95,8 +96,11 @@ export function useDecisionInbox(): DecisionInboxState {
       }
       const next = (await res.json()) as EscalationRecord[];
       setRecords(openOrdered(next));
+      setFetchFailed(false);
     } catch {
-      // Leave the last-known list in place; realtime + the next poll reconcile.
+      // Leave the last-known list in place; the next poll reconciles. Only a
+      // genuine fetch failure marks the data stale (not a quiet websocket).
+      setFetchFailed(true);
     } finally {
       setLoading(false);
     }
@@ -121,10 +125,11 @@ export function useDecisionInbox(): DecisionInboxState {
     void fetchInbox();
   }, [fetchInbox]);
 
-  const { stale: connectionStale } = useIncidentUpdates(
-    '/escalations/*',
-    onEscalationUpdate,
-  );
+  // Keep the realtime subscription running (it re-fetches on any commit), but
+  // do NOT surface its quiet-websocket "stale" flag as a banner: the 15s poll
+  // keeps the list current regardless. Only a genuine fetch failure is shown.
+  useIncidentUpdates('/escalations/*', onEscalationUpdate);
+  const connectionStale = fetchFailed;
 
   const submitOption = useCallback(
     async (escalationId: string, optionId: string) => {

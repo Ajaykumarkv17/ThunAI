@@ -78,6 +78,16 @@ export interface Assignment {
   acknowledgementDeadline: string;
   /** Current lifecycle state; gates the reachable controls (Req 13.2, §4.3). */
   state: AssignmentState;
+  /** ISO timestamp when the responder accepted (for the timeline). */
+  acceptedAt?: string | null;
+  /** ISO timestamp when the responder reported en-route. */
+  enRouteAt?: string | null;
+  /** ISO timestamp when the responder reported on-scene. */
+  onSceneAt?: string | null;
+  /** ISO timestamp when the responder marked the rescue completed. */
+  completedAt?: string | null;
+  /** ISO timestamp when the responder declined. */
+  declinedAt?: string | null;
 }
 
 /**

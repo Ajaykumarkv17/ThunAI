@@ -53,3 +53,9 @@ Thumbs.db
 # --- Local eval / run artefacts ---------------------------------------------
 evals/results/*
 !evals/results/.gitkeep
+
+# --- Local deploy artifacts / infra scratch (contain account id, email, resource ids) ---
+infra/runtime-env.json
+infra/codebuild-*.json
+infra/xray-logs-resource-policy.json
+frontend/*.zip

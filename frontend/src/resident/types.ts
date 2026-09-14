@@ -44,26 +44,21 @@ export interface ShelterInfo {
   availableCapacity: number;
 }
 
-/** One published threshold in the active rule set (Req 14 / Req 2.7). */
-export interface RuleThreshold {
-  /** Threshold identifier, e.g. "River level". */
-  label: string;
-  /** Numeric threshold value. */
-  value: number;
-  /** Unit of the value, e.g. "m", "mm/h", "m³/s" (Req 2.7). */
-  unit: string;
-}
-
 /**
- * The active rule set as published to the resident page (Req 2.7): every
- * threshold value, its unit, the staleness limit, and the Rule_Set_Version.
+ * One hazard reading shown to residents: the current measured level vs the
+ * danger (evacuate) threshold, plainly, so anyone can see how close things are.
  */
-export interface RuleSet {
-  thresholds: RuleThreshold[];
-  /** Configured staleness limit in seconds (design: 15 minutes = 900s). */
-  stalenessLimitSeconds: number;
-  /** Content-hash identifier of the active rule set. */
-  ruleSetVersion: string;
+export interface HazardLevel {
+  /** Reading label, e.g. "River level". */
+  label: string;
+  /** Current measured value, or null when no reading is available. */
+  currentValue: number | null;
+  /** The threshold at which evacuation is advised. */
+  thresholdValue: number;
+  /** Unit, e.g. "m", "mm/h", "m³/s". */
+  unit: string;
+  /** True when the current value is at or above the threshold. */
+  exceeded: boolean;
 }
 
 /**
@@ -73,12 +68,18 @@ export interface RuleSet {
 export interface ResidentStatus {
   /** Current severity band; the last known band if the reading is stale (Req 14.8). */
   severity: SeverityBand;
+  /**
+   * Factual, deterministic one-line reason for the current band, built from
+   * which readings exceeded threshold (never model-generated). Empty for
+   * NORMAL or when no reading is above threshold.
+   */
+  severityReason?: string;
   /** Public affected-area list with aggregate counts only (Req 14.1, 14.5). */
   affectedAreas: AffectedArea[];
   /** All shelters recorded in State_Store (Req 14.2). */
   shelters: ShelterInfo[];
-  /** The active published rule set (Req 2.7). */
-  ruleSet: RuleSet;
+  /** Current hazard readings vs their evacuate thresholds (Req 14.1). */
+  levels: HazardLevel[];
   /** ISO timestamp of the reading that produced the current severity band (Req 14.1). */
   readingTimestamp: string;
   /** True when the reading is older than the staleness limit or unavailable (Req 14.8). */

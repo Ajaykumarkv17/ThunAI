@@ -32,6 +32,8 @@ from infra.stacks import (
     KnowledgeStack,
     ObservabilityStack,
     RealtimeStack,
+    ResidentStack,
+    ResponderApiStack,
     TriggersStack,
 )
 
@@ -77,6 +79,7 @@ escalation = EscalationStack(
     app,
     "ThunaiEscalation",
     state_table=data.state_table,
+    audit_table=data.audit_table,
     runtime_arn=agentcore.runtime.attr_agent_runtime_arn,
     env=env,
 )
@@ -89,6 +92,24 @@ realtime = RealtimeStack(
     cognito_pool=auth.user_pool,
     env=env,
 )
+
+# 7b. Resident tier — public read API for the Resident_Status_Page.
+resident = ResidentStack(
+    app,
+    "ThunaiResident",
+    state_table=data.state_table,
+    env=env,
+)
+resident.add_dependency(data)
+
+# 7c. Responder tier — assignment read/respond API for the Responder_Interface.
+responder_api = ResponderApiStack(
+    app,
+    "ThunaiResponderApi",
+    state_table=data.state_table,
+    env=env,
+)
+responder_api.add_dependency(data)
 
 # 8. Observability tier — Transaction Search + AWS Budgets backstop.
 observability = ObservabilityStack(

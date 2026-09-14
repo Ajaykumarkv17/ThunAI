@@ -1111,3 +1111,172 @@ def _best_effort_notify(record: EscalationRecord, provider: NotificationProvider
             provider.send_email(email, f"ThunAI: {kind}", message, idempotency_key=f"{idempotency_key}:email")
         except NotificationSendError:
             pass
+
+
+# ---------------------------------------------------------------------------
+# API Gateway (proxy) Lambda handler.
+#
+# The EscalationStack wires this module's `handler` behind an API Gateway REST
+# API. It serves the two coordinator-facing operations the frontend calls:
+#   - GET  /escalations?status=OPEN  -> the Decision_Inbox list (Req 12.1)
+#   - POST /resolve  {escalationId, optionId, respondingHumanId?}  (Req 11.4)
+# plus a permissive CORS preflight so the local Vite dev server can call it.
+#
+# Records are mapped to the frontend's camelCase `EscalationRecord` shape
+# (frontend/src/coordinator/types.ts) so the inbox renders them directly.
+# ---------------------------------------------------------------------------
+import json as _json
+
+from memory import state_store as _state_store
+
+_CORS_HEADERS = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Headers": "Content-Type,Authorization",
+    "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
+    "Content-Type": "application/json",
+}
+
+
+def _record_to_inbox_json(record: EscalationRecord) -> dict[str, Any]:
+    """Map a persisted EscalationRecord to the frontend camelCase shape."""
+    return {
+        "escalationId": record.escalation_id,
+        "incidentId": record.incident_id or "",
+        "status": record.status,
+        "decisionSummary": record.decision_summary,
+        "reasonForAsking": record.reason,
+        "stakes": record.stakes,
+        "defaultAction": record.default_action,
+        "options": [
+            {"optionId": opt.option_id, "label": opt.label} for opt in record.options
+        ],
+        "responseDeadline": record.response_deadline,
+    }
+
+
+def _response(status_code: int, body: Any) -> dict[str, Any]:
+    return {
+        "statusCode": status_code,
+        "headers": _CORS_HEADERS,
+        "body": _json.dumps(body, default=str),
+    }
+
+
+def _maybe_create_assignment_from_escalation(escalation_id: str) -> None:
+    """Create a responder assignment when a dispatch escalation is approved.
+
+    The live coordinator -> responder handshake: an approved dispatch decision
+    writes an ASSIGNMENT item (state AWAITING_ACK) for the configured responder,
+    so it shows up on the Responder_Interface right away. Best-effort — a
+    failure here never breaks the coordinator's resolve response.
+    """
+    import os as _os
+    import uuid as _uuid
+    from datetime import datetime as _dt
+    from datetime import timedelta as _td
+    from datetime import timezone as _tz
+
+    try:
+        record = _state_store.get_escalation_record(escalation_id)
+        if record is None:
+            return
+        # Only dispatch-type escalations produce a responder assignment.
+        if getattr(record, "escalation_type", "") != "dispatch":
+            return
+
+        responder_id = _os.environ.get("THUNAI_DEMO_RESPONDER_ID", "")
+        if not responder_id:
+            return
+
+        import boto3 as _boto3
+
+        table = _boto3.resource(
+            "dynamodb", region_name=_os.environ.get("AWS_REGION", "us-east-1")
+        ).Table(_os.environ.get("THUNAI_STATE_TABLE", "thunai-state"))
+
+        assignment_id = f"REQ-{_uuid.uuid4().hex[:4].upper()}"
+        deadline = (_dt.now(_tz.utc) + _td(minutes=20)).isoformat()
+        table.put_item(
+            Item={
+                "pk": f"ASSIGNMENT#{assignment_id}",
+                "sk": "META",
+                "assignmentId": assignment_id,
+                "requestId": assignment_id,
+                "assignedResponderId": responder_id,
+                "locationReference": "Riverside Lane, near the bridge",
+                "occupantCount": 2,
+                "mobilityAssistance": True,
+                "medicalNeed": False,
+                "equipmentRequirement": "Rescue boat",
+                "acknowledgementDeadline": deadline,
+                "state": "AWAITING_ACK",
+                "sourceEscalationId": escalation_id,
+            }
+        )
+    except Exception as exc:  # noqa: BLE001 - handshake is best-effort
+        app.logger.error("assignment handshake failed for %s: %r", escalation_id, exc)
+
+
+def handler(event: dict[str, Any] | None = None, context: Any = None) -> dict[str, Any]:
+    """API Gateway proxy entry point for the coordinator escalation surface.
+
+    Routes (method + path):
+        OPTIONS *              -> CORS preflight (204)
+        GET  /escalations      -> OPEN Escalation_Records for Decision_Inbox
+        POST /resolve          -> resolve one escalation with a chosen option
+
+    Every response carries permissive CORS headers so the local frontend dev
+    server (a different origin) can call the deployed API directly.
+    """
+    event = event or {}
+    method = (
+        event.get("httpMethod")
+        or event.get("requestContext", {}).get("http", {}).get("method")
+        or "GET"
+    ).upper()
+    path = event.get("path") or event.get("resource") or event.get("rawPath") or "/"
+
+    if method == "OPTIONS":
+        return _response(204, {})
+
+    try:
+        if method == "GET" and "escalation" in path:
+            records = _state_store.query_open_escalations()
+            return _response(200, [_record_to_inbox_json(r) for r in records])
+
+        if method == "POST" and ("resolve" in path or "respond" in path):
+            raw_body = event.get("body") or "{}"
+            if event.get("isBase64Encoded"):
+                import base64
+
+                raw_body = base64.b64decode(raw_body).decode("utf-8")
+            payload = _json.loads(raw_body) if isinstance(raw_body, str) else raw_body
+            # The frontend calls POST /escalations/{escalationId}/respond with
+            # {optionId}; the id is in the path. The legacy /resolve route
+            # carries the id in the body. Support both.
+            path_params = event.get("pathParameters") or {}
+            escalation_id = (
+                path_params.get("escalationId")
+                or payload.get("escalationId")
+                or payload.get("escalation_id")
+            )
+            option_id = payload.get("optionId") or payload.get("option_id")
+            human_id = payload.get("respondingHumanId") or payload.get("responding_human_id")
+            if not escalation_id or not option_id:
+                return _response(
+                    400, {"ok": False, "reason": "missing escalationId or optionId"}
+                )
+            result = resolve_escalation(
+                escalation_id, option_id, responding_human_id=human_id
+            )
+            # LIVE HANDSHAKE (coordinator -> responder): when the coordinator
+            # APPROVES a dispatch escalation, create the responder's assignment
+            # so it appears on the Responder_Interface immediately. This is the
+            # approve -> dispatch -> responder link the demo shows end to end.
+            if result.get("ok") and str(option_id).lower() in ("approve", "dispatch"):
+                _maybe_create_assignment_from_escalation(escalation_id)
+            return _response(200, result)
+
+        return _response(404, {"ok": False, "reason": "not_found", "path": path})
+    except Exception as exc:  # noqa: BLE001 - surface a JSON error, never a 502
+        return _response(500, {"ok": False, "reason": "internal_error", "detail": str(exc)})

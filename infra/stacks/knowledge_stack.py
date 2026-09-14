@@ -97,7 +97,13 @@ class KnowledgeStack(Stack):
                     "s3vectors:ListVectors",
                     "s3vectors:DeleteVectors",
                 ],
-                resources=["*"],
+                # Scope to the vector bucket AND its indexes. S3 Vectors
+                # authorizes index-level actions (QueryVectors/GetVectors/...)
+                # against the index sub-resource ARN, so both are needed.
+                resources=[
+                    self.vector_bucket.attr_vector_bucket_arn,
+                    f"{self.vector_bucket.attr_vector_bucket_arn}/index/*",
+                ],
             )
         )
 
@@ -121,6 +127,17 @@ class KnowledgeStack(Stack):
             ),
         )
         self.knowledge_base.node.add_dependency(self.vector_index)
+        # CRITICAL: Bedrock synchronously calls s3vectors:QueryVectors while
+        # validating the storage config at create time. The role's inline
+        # permissions live in a separate `KnowledgeBaseRoleDefaultPolicy`
+        # resource that `role_arn` alone does NOT order against, so without
+        # this the KB can be created before the policy attaches and fail 403.
+        # Depend on the whole role node so every attached policy exists first.
+        self.knowledge_base.node.add_dependency(kb_role)
+        if kb_role.node.try_find_child("DefaultPolicy") is not None:
+            self.knowledge_base.node.add_dependency(
+                kb_role.node.find_child("DefaultPolicy")
+            )
 
         self.data_source = bedrock.CfnDataSource(
             self,

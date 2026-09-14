@@ -43,6 +43,62 @@ const ACTION_ORDER: readonly ResponderAction[] = [
   'completed',
 ];
 
+/** The ordered timeline steps and the assignment field holding each time. */
+const TIMELINE_STEPS: readonly { label: string; key: keyof Assignment; reachedStates: string[] }[] = [
+  { label: 'Assigned', key: 'acknowledgementDeadline', reachedStates: ['AWAITING_ACK', 'ACCEPTED', 'EN_ROUTE', 'ON_SCENE', 'VERIFICATION', 'DECLINED'] },
+  { label: 'Accepted', key: 'acceptedAt', reachedStates: ['ACCEPTED', 'EN_ROUTE', 'ON_SCENE', 'VERIFICATION'] },
+  { label: 'On my way', key: 'enRouteAt', reachedStates: ['EN_ROUTE', 'ON_SCENE', 'VERIFICATION'] },
+  { label: 'Arrived', key: 'onSceneAt', reachedStates: ['ON_SCENE', 'VERIFICATION'] },
+  { label: 'Rescue complete', key: 'completedAt', reachedStates: ['VERIFICATION'] },
+];
+
+/** Format an ISO time as a short local clock time, or a placeholder. */
+function formatStepTime(iso: string | null | undefined): string {
+  if (!iso) return '';
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return '';
+  return d.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+}
+
+/** Vertical progress timeline for one assignment (the "delivery tracker" look). */
+function AssignmentTimeline({ assignment }: { assignment: Assignment }) {
+  // A declined assignment shows Assigned → Declined only.
+  const steps =
+    assignment.state === 'DECLINED'
+      ? [TIMELINE_STEPS[0], { label: 'Declined', key: 'declinedAt' as keyof Assignment, reachedStates: ['DECLINED'] }]
+      : TIMELINE_STEPS;
+
+  return (
+    <ol className="timeline" aria-label="Assignment progress">
+      {steps.map((step) => {
+        const reached = step.reachedStates.includes(assignment.state);
+        const timeVal = step.key === 'acknowledgementDeadline' ? null : (assignment[step.key] as string | null | undefined);
+        const isCurrent =
+          (step.label === 'Assigned' && assignment.state === 'AWAITING_ACK') ||
+          (step.label === 'Accepted' && assignment.state === 'ACCEPTED') ||
+          (step.label === 'On my way' && assignment.state === 'EN_ROUTE') ||
+          (step.label === 'Arrived' && assignment.state === 'ON_SCENE') ||
+          (step.label === 'Rescue complete' && assignment.state === 'VERIFICATION') ||
+          (step.label === 'Declined' && assignment.state === 'DECLINED');
+        const cls = [
+          'timeline__step',
+          reached ? 'timeline__step--done' : 'timeline__step--pending',
+          isCurrent ? 'timeline__step--current' : '',
+        ]
+          .filter(Boolean)
+          .join(' ');
+        return (
+          <li key={step.label} className={cls}>
+            <span className="timeline__marker" aria-hidden="true" />
+            <span className="timeline__label">{step.label}</span>
+            {timeVal && <span className="timeline__time">{formatStepTime(timeVal)}</span>}
+          </li>
+        );
+      })}
+    </ol>
+  );
+}
+
 /** i18n key for a control label. */
 function actionLabelKey(action: ResponderAction): string {
   return `responder.action.${action}`;
@@ -134,14 +190,22 @@ function AssignmentCard({
       aria-busy={disabled}
     >
       <h2 id={`asg-${assignment.assignmentId}-request`} className="assignment-card__request">
-        {t('responder.request')}: {assignment.requestId}
+        Rescue assignment
+        <span className="assignment-card__ref">#{assignment.requestId}</span>
       </h2>
 
       {/* Current lifecycle state, announced so a responder always knows where the
           assignment stands (Req 13.2). */}
-      <p className="assignment-card__state" role="status" aria-live="polite">
-        {t('responder.state')}: {t(`responder.state.${assignment.state}`)}
+      <p
+        className={`assignment-card__state assignment-card__state--${assignment.state}`}
+        role="status"
+        aria-live="polite"
+      >
+        {t(`responder.state.${assignment.state}`)}
       </p>
+
+      {/* Visual progress timeline of the assignment's lifecycle stages. */}
+      <AssignmentTimeline assignment={assignment} />
 
       {/* Assignment fields carried from the notification (Req 13.1, 13.2). */}
       <dl className="assignment-card__details">

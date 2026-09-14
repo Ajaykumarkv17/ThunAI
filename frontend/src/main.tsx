@@ -17,10 +17,12 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Amplify } from 'aws-amplify';
+import './styles.css';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import { residentRoutes } from './resident';
 import { coordinatorRoutes } from './coordinator';
 import { responderRoutes } from './responder';
+import { AppShell } from './shared/AppShell';
 
 /**
  * Configure Amplify from build-time env vars. Only the sections whose required
@@ -102,12 +104,14 @@ if (!container) {
 createRoot(container).render(
   <StrictMode>
     <BrowserRouter>
-      <Routes>
-        {residentRoutes()}
-        {coordinatorRoutes()}
-        {responderRoutes()}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <AppShell>
+        <Routes>
+          {residentRoutes()}
+          {coordinatorRoutes()}
+          {responderRoutes()}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </AppShell>
     </BrowserRouter>
   </StrictMode>,
 );

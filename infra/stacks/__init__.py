@@ -8,6 +8,8 @@ from infra.stacks.frontend_stack import FrontendStack
 from infra.stacks.knowledge_stack import KnowledgeStack
 from infra.stacks.observability_stack import ObservabilityStack
 from infra.stacks.realtime_stack import RealtimeStack
+from infra.stacks.resident_stack import ResidentStack
+from infra.stacks.responder_stack import ResponderApiStack
 from infra.stacks.triggers_stack import TriggersStack
 
 __all__ = [
@@ -19,5 +21,7 @@ __all__ = [
     "KnowledgeStack",
     "ObservabilityStack",
     "RealtimeStack",
+    "ResidentStack",
+    "ResponderApiStack",
     "TriggersStack",
 ]

@@ -20,8 +20,7 @@ export type {
   SeverityBand,
   AffectedArea,
   ShelterInfo,
-  RuleSet,
-  RuleThreshold,
+  HazardLevel,
 } from './types';
 
 /**

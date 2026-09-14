@@ -23,6 +23,7 @@
  */
 
 import { useI18n, type I18n } from '../shared/i18n';
+import { ActiveDispatches } from './ActiveDispatches';
 import { remainingTime, useDecisionInbox } from './useDecisionInbox';
 import type { EscalationRecord } from './types';
 
@@ -78,6 +79,9 @@ export function DecisionInbox() {
           ))}
         </ol>
       )}
+
+      {/* Live view of dispatches the coordinator approved, closing the loop. */}
+      <ActiveDispatches />
     </main>
   );
 }
@@ -101,12 +105,26 @@ function EscalationCard({
   const { t } = i18n;
   const { minutes, seconds, expired } = remainingTime(record.responseDeadline, nowMs);
 
+  const urgent = !expired && minutes < 10;
+
   return (
     <section
       className="escalation-card"
       aria-labelledby={`esc-${record.escalationId}-summary`}
       aria-busy={disabled}
     >
+      {/* Header: decision-required tag + live countdown chip. */}
+      <div className="escalation-card__head">
+        <span className="escalation-card__tag">Decision required</span>
+        <span
+          className={`escalation-card__timer${urgent ? ' escalation-card__timer--urgent' : ''}${expired ? ' escalation-card__timer--expired' : ''}`}
+          role="timer"
+          aria-live="polite"
+        >
+          {expired ? t('inbox.deadlinePassed') : formatRemaining(minutes, seconds)}
+        </span>
+      </div>
+
       <h2 id={`esc-${record.escalationId}-summary`} className="escalation-card__summary">
         {record.decisionSummary}
       </h2>
@@ -118,34 +136,38 @@ function EscalationCard({
       )}
 
       <dl className="escalation-card__details">
-        <dt>{t('inbox.reason')}</dt>
-        <dd>{record.reasonForAsking}</dd>
-        <dt>{t('inbox.stakes')}</dt>
-        <dd>{record.stakes}</dd>
-        <dt>{t('inbox.defaultAction')}</dt>
-        <dd>{record.defaultAction}</dd>
+        <div className="escalation-card__field">
+          <dt>{t('inbox.reason')}</dt>
+          <dd>{record.reasonForAsking}</dd>
+        </div>
+        <div className="escalation-card__field">
+          <dt>{t('inbox.stakes')}</dt>
+          <dd>{record.stakes}</dd>
+        </div>
       </dl>
 
-      {/* Remaining time — recomputed as `nowMs` ticks at least every 10s (Req 12.1). */}
-      <p className="escalation-card__countdown" role="timer" aria-live="polite">
-        {t('inbox.timeRemaining')}:{' '}
-        {expired ? t('inbox.deadlinePassed') : formatRemaining(minutes, seconds)}
-      </p>
-
-      {/* One control per available option; all disabled while a submit is in
-          flight so a single activation yields at most one response (Req 12.2). */}
-      <div className="escalation-card__options" role="group" aria-label={record.decisionSummary}>
-        {record.options.map((option) => (
-          <button
-            key={option.optionId}
-            type="button"
-            className="escalation-card__option"
-            disabled={disabled}
-            onClick={() => onSelect(record.escalationId, option.optionId)}
-          >
-            {disabled ? t('inbox.submitting') : option.label}
-          </button>
-        ))}
+      {/* Footer: default-action note + the decision controls. */}
+      <div className="escalation-card__footer">
+        <p className="escalation-card__default">
+          If no response by the deadline: <strong>{record.defaultAction}</strong>
+        </p>
+        <div className="escalation-card__options" role="group" aria-label={record.decisionSummary}>
+          {record.options.map((option, idx) => (
+            <button
+              key={option.optionId}
+              type="button"
+              className={
+                idx === 0
+                  ? 'escalation-card__option escalation-card__option--primary'
+                  : 'escalation-card__option escalation-card__option--secondary'
+              }
+              disabled={disabled}
+              onClick={() => onSelect(record.escalationId, option.optionId)}
+            >
+              {disabled ? t('inbox.submitting') : option.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Error indication; controls above are already re-enabled for retry (Req 12.3). */}

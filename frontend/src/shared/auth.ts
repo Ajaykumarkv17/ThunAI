@@ -12,10 +12,13 @@
  */
 
 import { Fragment, type ReactNode, createElement, useEffect, useState } from 'react';
+import { SignIn } from './SignIn';
 import {
+  confirmSignIn as amplifyConfirmSignIn,
   fetchAuthSession,
   signIn as amplifySignIn,
   signOut as amplifySignOut,
+  type ConfirmSignInInput,
   type SignInInput,
 } from 'aws-amplify/auth';
 
@@ -37,6 +40,15 @@ export interface AuthUser {
  */
 export async function signIn(input: SignInInput) {
   return amplifySignIn(input);
+}
+
+/**
+ * Respond to a sign-in challenge (e.g. NEW_PASSWORD_REQUIRED). Thin
+ * pass-through to Amplify, kept alongside `signIn` so the sign-in form imports
+ * a single auth module.
+ */
+export async function confirmSignIn(input: ConfirmSignInInput) {
+  return amplifyConfirmSignIn(input);
 }
 
 /** Sign the current user out and clear the cached session. */
@@ -62,7 +74,7 @@ export async function getCurrentUser(): Promise<AuthUser | null> {
 
     return {
       userId: String(claims.sub),
-      username: String(claims['cognito:username'] ?? claims.email ?? claims.sub),
+      username: String(claims.email ?? claims['cognito:username'] ?? claims.sub),
       groups,
     };
   } catch {
@@ -110,10 +122,12 @@ export interface RouteGuardProps {
 export function RouteGuard({ requiredGroup, children, renderDenied }: RouteGuardProps) {
   const [status, setStatus] = useState<GuardStatus>('checking');
   const [reason, setReason] = useState<'unauthenticated' | 'wrong_group'>('unauthenticated');
+  const [recheck, setRecheck] = useState(0);
 
   useEffect(() => {
     let active = true;
     (async () => {
+      setStatus('checking');
       const user = await getCurrentUser();
       if (!active) return;
 
@@ -132,7 +146,7 @@ export function RouteGuard({ requiredGroup, children, renderDenied }: RouteGuard
     return () => {
       active = false;
     };
-  }, [requiredGroup]);
+  }, [requiredGroup, recheck]);
 
   if (status === 'checking') {
     return createElement(
@@ -147,6 +161,14 @@ export function RouteGuard({ requiredGroup, children, renderDenied }: RouteGuard
       return createElement(Fragment, null, renderDenied(reason));
     }
     const surface = requiredGroup === 'coordinators' ? 'Coordinator' : 'Responder';
+    // No session → show the sign-in form so the visitor can authenticate.
+    if (reason === 'unauthenticated') {
+      return createElement(SignIn, {
+        surface,
+        onSignedIn: () => setRecheck((n) => n + 1),
+      });
+    }
+    // Authenticated but wrong group → deny (do not offer re-login).
     return createElement(
       'div',
       { role: 'alert' },
